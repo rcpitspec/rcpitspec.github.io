@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RC Pit Spec - RCセッティング共有アプリ</title>
+  <meta name="description" content="タミヤRCカーのセッティングを記録・共有・AI診断できるアプリ。ガレージ管理、パーツ図鑑、セッティングシート管理をこれ1つで。">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #000000;
+      --surface: #0a0a0a;
+      --card: #111111;
+      --neon-blue: #00ffff;
+      --gold: #ffd700;
+      --white: #ffffff;
+      --white70: rgba(255,255,255,0.7);
+      --white40: rgba(255,255,255,0.4);
+      --neon-glow: 0 0 20px rgba(0,255,255,0.3);
+      --gold-glow: 0 0 20px rgba(255,215,0,0.3);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Hero ─────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(0,255,255,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(255,215,0,0.04) 0%, transparent 60%),
+        var(--black);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      border: 1px solid var(--neon-blue);
+      border-radius: 999px;
+      color: var(--neon-blue);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 800;
+      color: var(--gold);
+      text-shadow: var(--gold-glow);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span {
+      color: var(--neon-blue);
+      text-shadow: var(--neon-glow);
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--white70);
+      max-width: 600px;
+      margin: 1rem auto 2rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: linear-gradient(135deg, var(--gold), #e6c200);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: var(--gold-glow);
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(255,215,0,0.5); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      color: var(--white40);
+      font-size: 0.85rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* ── Section ──────────────────────── */
+    section {
+      padding: 5rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--neon-blue);
+      text-shadow: var(--neon-glow);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--white40);
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+
+    /* ── Features ─────────────────────── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid rgba(0,255,255,0.15);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .feature-card:hover {
+      border-color: var(--neon-blue);
+      box-shadow: var(--neon-glow);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      color: var(--white70);
+      font-size: 0.95rem;
+    }
+
+    /* ── Screenshots ────────────────��─── */
+    .screenshots {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 1rem 0 2rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .screenshot-placeholder {
+      flex: 0 0 240px;
+      height: 420px;
+      background: var(--card);
+      border: 1px solid rgba(0,255,255,0.15);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white40);
+      font-size: 0.9rem;
+      scroll-snap-align: center;
+    }
+
+    /* ── Spec Table ───────────────────── */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    .spec-table th, .spec-table td {
+      text-align: left;
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .spec-table th {
+      color: var(--neon-blue);
+      font-weight: 600;
+      width: 40%;
+    }
+
+    .spec-table td {
+      color: var(--white70);
+    }
+
+    /* ── CTA ──────────────────────────── */
+    .cta-section {
+      text-align: center;
+      padding: 5rem 1.5rem;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(255,215,0,0.05) 0%, transparent 70%),
+        var(--surface);
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      color: var(--white40);
+      margin-bottom: 2rem;
+    }
+
+    .store-badges {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .store-badge {
+      padding: 0.8rem 1.8rem;
+      border: 1px solid var(--white40);
+      border-radius: 12px;
+      color: var(--white70);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: border-color 0.3s;
+    }
+    .store-badge:hover { border-color: var(--neon-blue); color: var(--neon-blue); }
+
+    /* ── Footer ───────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--white40);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer a {
+      color: var(--neon-blue);
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge">for Tamiya RC Enthusiasts</div>
+    <h1>RC <span>Pit</span> Spec</h1>
+    <p>タミヤRCカーのセッティングを記録・共有。<br>頑固親父AIがあなたのマシンを診断します。</p>
+    <a href="#features" class="hero-cta">機能を見る</a>
+    <div class="scroll-hint">Scroll</div>
+  </div>
+
+  <!-- Features -->
+  <section id="features">
+    <h2 class="section-title">主な機能</h2>
+    <p class="section-sub">RCピットに必要なすべてを、この1つのアプリに。</p>
+    <div class="features">
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F3CE;</div>
+        <h3>マイガレージ</h3>
+        <p>愛車を登録してセッティングを一元管理。複数台のマシンを自由に切り替え。</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F527;</div>
+        <h3>セッティングシート</h3>
+        <p>ダンパー・スプリング・車高など、すべての項目をドラムロールで簡単入力。キーボード操作を最小限に。</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F9D0;</div>
+        <h3>頑固親父AI診断</h3>
+        <p>Gemini AIがあなたのセッティングを辛口レビュー。ベテラン目線のアドバイスをリアルタイムで。</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F4DA;</div>
+        <h3>パーツ図鑑</h3>
+        <p>タミヤ純正パーツをカテゴリ・車種で検索。対応シャーシが一目でわかる。</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F310;</div>
+        <h3>みんなのガレージ</h3>
+        <p>他のユーザーのセッティングを閲覧。同じシャーシのセットアップを参考にしよう。<span style="color:var(--white40)">（Coming Soon）</span></p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F4F1;</div>
+        <h3>直感的なUI</h3>
+        <p>大きなボタン・ドラムロール入力・触覚フィードバック。ピットでもストレスなく操作できる設計。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section>
+    <h2 class="section-title">スクリーンショット</h2>
+    <p class="section-sub">漆黒 &times; ネオンブルーの世界観</p>
+    <div class="screenshots">
+      <div class="screenshot-placeholder">ガレージ画面</div>
+      <div class="screenshot-placeholder">オーバービュー</div>
+      <div class="screenshot-placeholder">ダンパー設定</div>
+      <div class="screenshot-placeholder">AI診断</div>
+      <div class="screenshot-placeholder">パーツ図鑑</div>
+    </div>
+  </section>
+
+  <!-- Spec -->
+  <section>
+    <h2 class="section-title">対応情報</h2>
+    <table class="spec-table">
+      <tr><th>対応シャーシ</th><td>MB-01 / TT-02（順次追加予定）</td></tr>
+      <tr><th>対応OS</th><td>iOS / Android</td></tr>
+      <tr><th>価格</th><td>基本無料（プレミアム機能はサブスクリプション）</td></tr>
+      <tr><th>パーツDB</th><td>タミヤ純正パーツ 22,000件以上</td></tr>
+      <tr><th>AI</th><td>Google Gemini によるセッティング診断</td></tr>
+    </table>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>まもなくリリース</h2>
+    <p>App Store / Google Play で配信予定</p>
+    <div class="store-badges">
+      <a href="#" class="store-badge">App Store（準備中）</a>
+      <a href="#" class="store-badge">Google Play（準備中）</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      <a href="privacy.html">プライバシーポリシー</a> &nbsp;|&nbsp;
+      &copy; 2026 RC Pit Spec
+    </p>
+  </footer>
+
+</body>
+</html>
