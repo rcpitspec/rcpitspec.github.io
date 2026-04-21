@@ -316,19 +316,18 @@
 
     .store-badges {
       display: flex;
-      gap: 1rem;
+      gap: 16px;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
+      /* クリアスペース: バッジ高さ(52px)の1/4 = 13px 以上の余白を確保 */
+      padding: 16px 0;
     }
 
     .store-badge {
       display: inline-flex;
       align-items: center;
-      transition: transform 0.2s, opacity 0.2s;
-      opacity: 0.95;
     }
-    .store-badge:hover { transform: translateY(-2px); opacity: 1; }
 
     .store-badge img {
       height: 52px;
