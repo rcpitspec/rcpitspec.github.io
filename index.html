@@ -209,6 +209,61 @@
       color: var(--white70);
     }
 
+    /* ── Plan Table ───────────────────── */
+    .plan-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    .plan-table th, .plan-table td {
+      text-align: center;
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .plan-table th:first-child, .plan-table td:first-child {
+      text-align: left;
+    }
+
+    .plan-table thead th {
+      color: var(--white40);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .plan-table thead .plan-pro {
+      color: var(--gold);
+      text-shadow: var(--gold-glow);
+    }
+
+    .plan-table td {
+      color: var(--white70);
+      font-size: 0.95rem;
+    }
+
+    .plan-table td:last-child {
+      color: var(--neon-blue);
+      font-weight: 600;
+    }
+
+    .plan-note {
+      color: var(--white40);
+      font-size: 0.8rem;
+    }
+
+    .plan-price {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: var(--white70);
+    }
+
+    .plan-price strong {
+      color: var(--gold);
+      font-size: 1.3rem;
+    }
+
     /* ── CTA ──────────────────────────── */
     .cta-section {
       text-align: center;
@@ -313,7 +368,7 @@
       <div class="feature-card">
         <div class="feature-icon">&#x1F4C4;</div>
         <h3>PDF出力</h3>
-        <p>セッティングシートをPDFで出力。ピットに紙で持ち込みたい派にも対応。<span style="color:var(--white40)">（Coming Soon）</span></p>
+        <p>セッティングシートをPDFで出力。ピットに紙で持ち込��たい派にも対応。</p>
       </div>
 
       <div class="feature-card">
@@ -339,6 +394,30 @@
     </div>
   </section>
 
+  <!-- Pricing -->
+  <section>
+    <h2 class="section-title">無料で全機能を体験</h2>
+    <p class="section-sub">気に入ったらプレミアムで制限解除。</p>
+    <table class="plan-table">
+      <thead>
+        <tr>
+          <th>機能</th>
+          <th>無料</th>
+          <th class="plan-pro">PRO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>ガレージ台数</td><td>2台</td><td>10台</td></tr>
+        <tr><td>AI診断</td><td>2回/日<span class="plan-note">（広告視聴）</span></td><td>10回/日</td></tr>
+        <tr><td>PDF出力</td><td>1回/日<span class="plan-note">（広告視聴）</span></td><td>無制限</td></tr>
+        <tr><td>セッティング共有</td><td>1件/日<span class="plan-note">（広告視聴）</span></td><td>10件/日</td></tr>
+        <tr><td>ピット投稿</td><td>1回/日<span class="plan-note">（広告視聴）</span></td><td>3回/日</td></tr>
+        <tr><td>バナー広告</td><td>あり</td><td>なし</td></tr>
+      </tbody>
+    </table>
+    <p class="plan-price">月額 <strong>500円</strong> / 年額 <strong>4,800円</strong><span class="plan-note">（20%OFF）</span></p>
+  </section>
+
   <!-- Spec -->
   <section>
     <h2 class="section-title">対応情報</h2>
@@ -347,7 +426,6 @@
       <tr><th>対応OS</th><td>iOS / Android</td></tr>
       <tr><th>価格</th><td>基本無料（プレミアム機能はサブスクリプション）</td></tr>
       <tr><th>パーツDB</th><td>タミヤ純正パーツ 1,400件以上</td></tr>
-      <tr><th>AI</th><td>Google Gemini によるセッティング診断</td></tr>
     </table>
   </section>
 
