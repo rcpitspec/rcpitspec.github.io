@@ -186,6 +186,36 @@
       scroll-snap-align: center;
     }
 
+    .screenshot {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .screenshot img {
+      width: 240px;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid rgba(0,255,255,0.15);
+      box-shadow: 0 0 24px rgba(0,255,255,0.08);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .screenshot img:hover {
+      border-color: var(--neon-blue);
+      box-shadow: var(--neon-glow);
+    }
+
+    .screenshot-label {
+      color: var(--white70);
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+    }
+
     /* ── Spec Table ───────────────────── */
     .spec-table {
       width: 100%;
@@ -385,12 +415,22 @@
     <h2 class="section-title">スクリーンショット</h2>
     <p class="section-sub">漆黒 &times; ネオンブルーの世界観</p>
     <div class="screenshots">
-      <div class="screenshot-placeholder">マイガレージ</div>
-      <div class="screenshot-placeholder">オーバービュー</div>
-      <div class="screenshot-placeholder">ダンパー設定</div>
-      <div class="screenshot-placeholder">AI診断</div>
-      <div class="screenshot-placeholder">ピットレーン</div>
-      <div class="screenshot-placeholder">パーツ図鑑</div>
+      <figure class="screenshot">
+        <img src="image_garage_ja.webp" alt="マイガレージ画面" loading="lazy">
+        <figcaption class="screenshot-label">マイガレージ</figcaption>
+      </figure>
+      <figure class="screenshot">
+        <img src="image_overview_ja.webp" alt="オーバービュー画面" loading="lazy">
+        <figcaption class="screenshot-label">オーバービュー</figcaption>
+      </figure>
+      <figure class="screenshot">
+        <img src="image_ai_ja.webp" alt="AI診断画面" loading="lazy">
+        <figcaption class="screenshot-label">AI診断</figcaption>
+      </figure>
+      <figure class="screenshot">
+        <img src="image_pit_lane_ja.webp" alt="ピットレーン画面" loading="lazy">
+        <figcaption class="screenshot-label">ピットレーン</figcaption>
+      </figure>
     </div>
   </section>
 
