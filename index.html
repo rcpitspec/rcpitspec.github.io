@@ -262,6 +262,11 @@
       font-size: 0.95rem;
     }
 
+    .plan-table thead .plan-basic {
+      color: var(--neon-blue);
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    }
+
     .plan-table thead .plan-pro {
       color: var(--gold);
       text-shadow: var(--gold-glow);
@@ -272,8 +277,14 @@
       font-size: 0.95rem;
     }
 
-    .plan-table td:last-child {
+    .plan-table tbody td:nth-child(3) {
       color: var(--neon-blue);
+      font-weight: 600;
+    }
+
+    .plan-table td:last-child {
+      color: var(--gold);
+      text-shadow: var(--gold-glow);
       font-weight: 600;
     }
 
@@ -289,9 +300,24 @@
       color: var(--white70);
     }
 
+    .plan-price p {
+      margin-bottom: 0.6rem;
+    }
+
     .plan-price strong {
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      margin-right: 0.4rem;
+    }
+
+    .plan-price .plan-basic {
+      color: var(--neon-blue);
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    }
+
+    .plan-price .plan-pro {
       color: var(--gold);
-      font-size: 1.3rem;
+      text-shadow: var(--gold-glow);
     }
 
     /* ── CTA ──────────────────────────── */
@@ -433,26 +459,30 @@
 
   <!-- Pricing -->
   <section>
-    <h2 class="section-title">無料で全機能を体験</h2>
+    <h2 class="section-title">無料で主要機能を試す</h2>
     <p class="section-sub">気に入ったらプレミアムで制限解除。</p>
     <table class="plan-table">
       <thead>
         <tr>
           <th>機能</th>
           <th>無料</th>
+          <th class="plan-basic">BASIC</th>
           <th class="plan-pro">PRO</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>ガレージ台数</td><td>2台</td><td>10台</td></tr>
-        <tr><td>AI診断</td><td>2回/日<span class="plan-note">（広告視聴）</span></td><td>10回/日</td></tr>
-        <tr><td>PDF出力</td><td>1回/日<span class="plan-note">（広告視聴）</span></td><td>無制限</td></tr>
-        <tr><td>セッティング共有</td><td>1件/日<span class="plan-note">（広告視聴）</span></td><td>10件/日</td></tr>
-        <tr><td>ピット投稿</td><td>1回/日<span class="plan-note">（広告視聴）</span></td><td>3回/日</td></tr>
-        <tr><td>広告</td><td>あり</td><td>なし</td></tr>
+        <tr><td>ガレージ台数</td><td>3台</td><td>10台</td><td>無制限</td></tr>
+        <tr><td>AIチケット</td><td>3枚/24h<span class="plan-note">（広告視聴）</span></td><td>15枚/月</td><td>50枚/月</td></tr>
+        <tr><td>PDF出力</td><td>1回/24h<span class="plan-note">（広告視聴）</span></td><td>無制限</td><td>無制限</td></tr>
+        <tr><td>ピット取り込み</td><td>1件/24h<span class="plan-note">（広告視聴）</span></td><td>5件/24h</td><td>無制限</td></tr>
+        <tr><td>ピット投稿</td><td>1件/24h<span class="plan-note">（広告視聴）</span></td><td>5件/24h</td><td>無制限</td></tr>
+        <tr><td>広告</td><td>あり</td><td>なし</td><td>なし</td></tr>
       </tbody>
     </table>
-    <p class="plan-price">月額 <strong>500円</strong> / 年額 <strong>4,800円</strong><span class="plan-note">（20%OFF）</span></p>
+    <div class="plan-price">
+      <p><strong class="plan-basic">BASIC</strong> 月額 500円 / 年額 5,000円<span class="plan-note">（2ヶ月分お得）</span></p>
+      <p><strong class="plan-pro">PRO</strong> 月額 1,500円 / 年額 15,000円<span class="plan-note">（2ヶ月分お得）</span></p>
+    </div>
   </section>
 
   <!-- Spec -->
@@ -485,6 +515,7 @@
     <p>
       <a href="privacy.html">プライバシーポリシー</a> &nbsp;|&nbsp;
       <a href="terms.html">利用規約</a> &nbsp;|&nbsp;
+      <a href="tokushoho.html">特定商取引法に基づく表記</a> &nbsp;|&nbsp;
       &copy; 2026 RC Pit Spec
     </p>
   </footer>
