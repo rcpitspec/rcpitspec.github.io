@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RC Pit Spec - RCセッティング共有アプリ</title>
-  <meta name="description" content="タミヤRCカーのセッティングを記録・共有・AI診断できるアプリ。ガレージ管理、パーツ図鑑、セッティングシート管理をこれ1つで。">
+  <title>RC Pit Spec - RC Setting Sharing App</title>
+  <meta name="description" content="An app to record, share, and AI-diagnose Tamiya RC car settings. Garage management, parts catalog, and setting sheets — all in one.">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -22,7 +22,7 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--black);
       color: var(--white);
       line-height: 1.7;
@@ -172,7 +172,7 @@
       font-size: 0.95rem;
     }
 
-    /* ── Screenshots ────────────────��─── */
+    /* ── Screenshots ──────────────────── */
     .screenshots {
       display: flex;
       gap: 1.5rem;
@@ -180,20 +180,6 @@
       padding: 1rem 0 2rem;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-    }
-
-    .screenshot-placeholder {
-      flex: 0 0 240px;
-      height: 420px;
-      background: var(--card);
-      border: 1px solid rgba(0,255,255,0.15);
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white40);
-      font-size: 0.9rem;
-      scroll-snap-align: center;
     }
 
     .screenshot {
@@ -356,7 +342,6 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      /* クリアスペース: バッジ高さ(52px)の1/4 = 13px 以上の余白を確保 */
       padding: 16px 0;
     }
 
@@ -391,54 +376,54 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="lang-switch"><strong>日本語</strong> | <a href="index.en.html">English</a></div>
+    <div class="lang-switch"><a href="index.html">日本語</a> | <strong>English</strong></div>
     <div class="hero-badge">for Tamiya RC Enthusiasts</div>
     <h1>RC <span>Pit</span> Spec</h1>
-    <p>タミヤRCカーのセッティングを記録・共有。<br>頑固親父AIがあなたのマシンを診断します。</p>
-    <a href="#features" class="hero-cta">機能を見る</a>
+    <p>Record and share your Tamiya RC car settings.<br>The "Stubborn Old Man" AI diagnoses your machine.</p>
+    <a href="#features" class="hero-cta">See features</a>
     <div class="scroll-hint">Scroll</div>
   </div>
 
   <!-- Features -->
   <section id="features">
-    <h2 class="section-title">主な機能</h2>
-    <p class="section-sub">RCピットに必要なすべてを、この1つのアプリに。</p>
+    <h2 class="section-title">Key Features</h2>
+    <p class="section-sub">Everything you need in your RC pit, all in one app.</p>
     <div class="features">
 
       <div class="feature-card">
         <div class="feature-icon">&#x1F3CE;</div>
-        <h3>マイガレージ</h3>
-        <p>愛車を登録してセッティングを一元管理。複数台のマシンを自由に切り替え。</p>
+        <h3>My Garage</h3>
+        <p>Register your machines and manage settings in one place. Switch between multiple chassis seamlessly.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">&#x1F527;</div>
-        <h3>セッティングシート</h3>
-        <p>ダンパー・スプリング・車高など、すべての項目をドラムロールで簡単入力。キーボード操作を最小限に。</p>
+        <h3>Setting Sheet</h3>
+        <p>Enter dampers, springs, ride height, and more with simple drum-roll pickers. Minimal keyboard input required.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">&#x1F9D0;</div>
-        <h3>頑固親父AI診断</h3>
-        <p>Gemini AIがあなたのセッティングを辛口レビュー。ベテラン目線のアドバイスをリアルタイムで。</p>
+        <h3>"Stubborn Old Man" AI Diagnosis</h3>
+        <p>Gemini AI gives you a no-nonsense review of your settings. Real-time advice from a veteran's perspective.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">&#x1F4DA;</div>
-        <h3>パーツ図鑑</h3>
-        <p>タミヤ純正パーツをカテゴリ・車種で検索。対応シャーシが一目でわかる。</p>
+        <h3>Parts Catalog</h3>
+        <p>Search Tamiya genuine parts by category and chassis. Compatible chassis are visible at a glance.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">&#x1F310;</div>
-        <h3>ピットレーン</h3>
-        <p>他のユーザーのセッティングを閲覧・共有。同じシャーシのセットアップを参考にしよう。</p>
+        <h3>Pit Lane</h3>
+        <p>Browse and share other users' settings. Reference setups for the same chassis as yours.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon">&#x1F4C4;</div>
-        <h3>PDF出力</h3>
-        <p>セッティングシートをPDFで出力。ピットに紙で持ち込みたい派にも対応。</p>
+        <h3>PDF Export</h3>
+        <p>Export setting sheets as PDFs. For those who prefer paper at the pit.</p>
       </div>
 
     </div>
@@ -446,76 +431,76 @@
 
   <!-- Screenshots -->
   <section>
-    <h2 class="section-title">スクリーンショット</h2>
-    <p class="section-sub">漆黒 &times; ネオンブルーの世界観</p>
+    <h2 class="section-title">Screenshots</h2>
+    <p class="section-sub">Pitch black &times; neon blue aesthetic</p>
     <div class="screenshots">
       <figure class="screenshot">
-        <img src="image_garage_ja.webp" alt="マイガレージ画面" loading="lazy">
-        <figcaption class="screenshot-label">マイガレージ</figcaption>
+        <img src="image_garage_ja.webp" alt="My Garage screen" loading="lazy">
+        <figcaption class="screenshot-label">My Garage</figcaption>
       </figure>
       <figure class="screenshot">
-        <img src="image_overview_ja.webp" alt="オーバービュー画面" loading="lazy">
-        <figcaption class="screenshot-label">オーバービュー</figcaption>
+        <img src="image_overview_ja.webp" alt="Overview screen" loading="lazy">
+        <figcaption class="screenshot-label">Overview</figcaption>
       </figure>
       <figure class="screenshot">
-        <img src="image_ai_ja.webp" alt="AI診断画面" loading="lazy">
-        <figcaption class="screenshot-label">AI診断</figcaption>
+        <img src="image_ai_ja.webp" alt="AI diagnosis screen" loading="lazy">
+        <figcaption class="screenshot-label">AI Diagnosis</figcaption>
       </figure>
       <figure class="screenshot">
-        <img src="image_pit_lane_ja.webp" alt="ピットレーン画面" loading="lazy">
-        <figcaption class="screenshot-label">ピットレーン</figcaption>
+        <img src="image_pit_lane_ja.webp" alt="Pit Lane screen" loading="lazy">
+        <figcaption class="screenshot-label">Pit Lane</figcaption>
       </figure>
     </div>
   </section>
 
   <!-- Pricing -->
   <section>
-    <h2 class="section-title">無料で主要機能を試す</h2>
-    <p class="section-sub">気に入ったらプレミアムで制限解除。</p>
+    <h2 class="section-title">Try the Core Features for Free</h2>
+    <p class="section-sub">Unlock everything with a premium plan if you like it.</p>
     <table class="plan-table">
       <thead>
         <tr>
-          <th>機能</th>
-          <th>無料</th>
+          <th>Feature</th>
+          <th>Free</th>
           <th class="plan-basic">BASIC</th>
           <th class="plan-pro">PRO</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>ガレージ台数</td><td>3台</td><td>10台</td><td>無制限</td></tr>
-        <tr><td>AIチケット</td><td>3枚/24h<span class="plan-note">（広告視聴）</span></td><td>15枚/月</td><td>50枚/月</td></tr>
-        <tr><td>PDF出力</td><td>1回/24h<span class="plan-note">（広告視聴）</span></td><td>無制限</td><td>無制限</td></tr>
-        <tr><td>ピット取り込み</td><td>1件/24h<span class="plan-note">（広告視聴）</span></td><td>5件/24h</td><td>無制限</td></tr>
-        <tr><td>ピット投稿</td><td>1件/24h<span class="plan-note">（広告視聴）</span></td><td>5件/24h</td><td>無制限</td></tr>
-        <tr><td>広告</td><td>あり</td><td>なし</td><td>なし</td></tr>
+        <tr><td>Garage slots</td><td>3</td><td>10</td><td>Unlimited</td></tr>
+        <tr><td>AI tickets</td><td>3 / 24h<span class="plan-note">(rewarded ad)</span></td><td>15 / month</td><td>50 / month</td></tr>
+        <tr><td>PDF export</td><td>1 / 24h<span class="plan-note">(rewarded ad)</span></td><td>Unlimited</td><td>Unlimited</td></tr>
+        <tr><td>Pit Lane import</td><td>1 / 24h<span class="plan-note">(rewarded ad)</span></td><td>5 / 24h</td><td>Unlimited</td></tr>
+        <tr><td>Pit Lane post</td><td>1 / 24h<span class="plan-note">(rewarded ad)</span></td><td>5 / 24h</td><td>Unlimited</td></tr>
+        <tr><td>Ads</td><td>Yes</td><td>None</td><td>None</td></tr>
       </tbody>
     </table>
     <div class="plan-price">
-      <p><strong class="plan-basic">BASIC</strong> 月額 500円 / 年額 5,000円<span class="plan-note">（2ヶ月分お得）</span></p>
-      <p><strong class="plan-pro">PRO</strong> 月額 1,500円 / 年額 15,000円<span class="plan-note">（2ヶ月分お得）</span></p>
+      <p><strong class="plan-basic">BASIC</strong> ¥500 / month or ¥5,000 / year<span class="plan-note">(save 2 months)</span></p>
+      <p><strong class="plan-pro">PRO</strong> ¥1,500 / month or ¥15,000 / year<span class="plan-note">(save 2 months)</span></p>
     </div>
   </section>
 
   <!-- Spec -->
   <section>
-    <h2 class="section-title">対応情報</h2>
+    <h2 class="section-title">Specifications</h2>
     <table class="spec-table">
-      <tr><th>対応シャーシ</th><td>MB-01 / TT-02 / TRF421（順次追加予定）</td></tr>
-      <tr><th>対応OS</th><td>iOS / Android</td></tr>
-      <tr><th>価格</th><td>基本無料（プレミアム機能はサブスクリプション）</td></tr>
-      <tr><th>パーツDB</th><td>タミヤ純正パーツ 1,400件以上</td></tr>
+      <tr><th>Supported chassis</th><td>MB-01 / TT-02 / TRF421 (more to come)</td></tr>
+      <tr><th>Supported OS</th><td>iOS / Android</td></tr>
+      <tr><th>Pricing</th><td>Free with optional premium subscription</td></tr>
+      <tr><th>Parts database</th><td>Over 1,400 Tamiya genuine parts</td></tr>
     </table>
   </section>
 
   <!-- CTA -->
   <div class="cta-section">
-    <h2>まもなくリリース</h2>
-    <p>App Store / Google Play で配信予定</p>
+    <h2>Coming Soon</h2>
+    <p>Available on App Store / Google Play</p>
     <div class="store-badges">
-      <a href="#" class="store-badge" aria-label="App Store でダウンロード（準備中）">
+      <a href="#" class="store-badge" aria-label="Download on the App Store (coming soon)">
         <img src="app_store.svg" alt="Download on the App Store">
       </a>
-      <a href="#" class="store-badge" aria-label="Google Play で手に入れよう（準備中）">
+      <a href="#" class="store-badge" aria-label="Get it on Google Play (coming soon)">
         <img src="google_play.svg" alt="Get it on Google Play">
       </a>
     </div>
@@ -524,9 +509,8 @@
   <!-- Footer -->
   <footer>
     <p>
-      <a href="privacy.html">プライバシーポリシー</a> &nbsp;|&nbsp;
-      <a href="terms.html">利用規約</a> &nbsp;|&nbsp;
-      <a href="tokushoho.html">特定商取引法に基づく表記</a> &nbsp;|&nbsp;
+      <a href="privacy.en.html">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="terms.en.html">Terms of Service</a> &nbsp;|&nbsp;
       &copy; 2026 RC Pit Spec
     </p>
   </footer>
