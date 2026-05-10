@@ -51,7 +51,7 @@
   <a href="index.en.html" class="back">&larr; Back to top</a>
   <div class="lang-switch"><a href="privacy">日本語</a> | <strong>English</strong></div>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: May 4, 2026</p>
+  <p class="updated">Last updated: May 10, 2026</p>
 
   <p>RC Pit Spec ("the App") is an application provided by KG App Lab ("the Operator"). The Operator respects user privacy and handles information in accordance with this policy.</p>
 
@@ -62,12 +62,12 @@
     <li><strong>Shared data (Pit Lane posts):</strong> Only when the user chooses to share via the "Pit Lane" feature, the following are stored on our server: <strong>machine name</strong>, partial setting values, course name, environment information (temperature, surface, grip, etc.), and the language setting at the time of posting. The poster's anonymous UID is also stored, used for post deletion and to address inappropriate content. Users may optionally enter a <strong>public handle name</strong> at the time of posting (displayed as "Anonymous" if left blank). The entered handle name is stored only for the post in question and is not linked to any cross-device profile.</li>
     <li><strong>AI feature inputs and outputs:</strong>
       <ul>
-        <li><strong>AI conversation:</strong> The user's messages and the current chassis settings are sent to Google (Gemini API) to generate responses. Conversation history is retained on-device only during the session and discarded when the session ends.</li>
+        <li><strong>AI conversation:</strong> The user's messages, the current chassis settings, relevant parts catalog information, and the personality prompt of the selected AI partner character are sent to Google (Gemini API) to generate responses. <strong>Conversation history is stored on-device in a local SQLite database, retaining up to 100 sessions; older sessions are automatically deleted when this limit is exceeded.</strong> Conversation history is never persistently stored on our server (Firestore, etc.) and is removed when the App is uninstalled.</li>
         <li><strong>AI diagnosis:</strong> Similarly, chassis settings are sent to Google to obtain an evaluation. Diagnosis results are stored on the device only and not sent to our server (they are deleted when the App is uninstalled).</li>
         <li>Per Google's API terms of service, the data sent is not used to train AI models.</li>
       </ul>
     </li>
-    <li><strong>Usage data:</strong> To enforce plan quotas, the AI ticket consumption count, current plan type, and contract cycle start/reset dates are stored on our server.</li>
+    <li><strong>Usage data:</strong> To enforce plan quotas, the AI ticket consumption count, the conversation mode turn consumption count, current plan type, and contract cycle start/reset dates are stored on our server.</li>
     <li><strong>Subscription information:</strong> Subscription status from Apple App Store / Google Play Store is synchronized via RevenueCat to manage plan validity. The App's anonymous UID is provided to RevenueCat as the App User ID for synchronization. Payment information such as credit card numbers is not handled by the App; it is processed directly by Apple / Google.</li>
     <li><strong>Push notification information:</strong> Only when the user opts in to receive notifications about new Pit Lane posts, the push notification registration token and the user's selected list of chassis-type subscriptions are managed by the notification delivery service (Google). Our server does not retain the subscription token. Notification permission can be revoked at any time via the device OS settings.</li>
     <li><strong>Crash reports and usage analytics:</strong> To fix bugs and improve features, we collect crash information, device information, and aggregated usage events. No personally identifiable information, including the anonymous UID, is associated with this data.</li>
