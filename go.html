@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>RC Pit Spec - アプリを開く</title>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0a0e1a;
+    color: #e8eaed;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    padding: 24px;
+  }
+  .card {
+    max-width: 420px;
+    text-align: center;
+  }
+  h1 { font-size: 22px; margin: 0 0 12px; }
+  p { font-size: 14px; line-height: 1.6; color: #aab1c0; margin: 8px 0; }
+  .links {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  a.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: #1a73e8;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  a.btn.secondary { background: #2a2f3d; color: #c8cdd6; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>RC Pit Spec</h1>
+  <p id="status">アプリストアへ移動しています…</p>
+  <div class="links">
+    <a id="apple" class="btn" href="#" rel="noopener">App Store で開く</a>
+    <a id="google" class="btn secondary" href="#" rel="noopener">Google Play で開く</a>
+    <a class="btn secondary" href="https://rcpitspec.github.io/" rel="noopener">公式サイトへ</a>
+  </div>
+</div>
+<script>
+  // URL は store_urls.dart と同期すること (2 箇所管理、アプリ ID 変更時は両方更新必要)。
+  var APP_STORE_URL = 'https://apps.apple.com/jp/app/rc-pit-spec/id6761605402';
+  var PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.rcpitspec.app';
+  var FALLBACK_URL = 'https://rcpitspec.github.io/';
+
+  document.getElementById('apple').href = APP_STORE_URL;
+  document.getElementById('google').href = PLAY_STORE_URL;
+
+  // navigator.userAgentData (Client Hints) を優先、未対応なら userAgent fallback。
+  var platform = '';
+  if (navigator.userAgentData && navigator.userAgentData.platform) {
+    platform = navigator.userAgentData.platform.toLowerCase();
+  }
+  var ua = (navigator.userAgent || '').toLowerCase();
+  var isIos = /iphone|ipad|ipod/.test(ua) || /ios|mac/.test(platform);
+  var isAndroid = /android/.test(ua) || /android/.test(platform);
+
+  var target = null;
+  if (isIos) target = APP_STORE_URL;
+  else if (isAndroid) target = PLAY_STORE_URL;
+
+  if (target) {
+    // 即時リダイレクト + 5 秒経っても遷移しなければ fallback URL を表示する保険。
+    window.location.replace(target);
+    setTimeout(function () {
+      document.getElementById('status').textContent = 'ストアが開けない場合は下のボタンから手動で開いてください。';
+    }, 5000);
+  } else {
+    document.getElementById('status').textContent = 'スマートフォンでこのページを開くと自動的にストアへ移動します。';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "P9X82ZA5W3.com.rcpitspec.app",
+        "paths": ["/go", "/go.html"]
+      },
+      {
+        "appID": "P9X82ZA5W3.com.rcpitspec.app.dev",
+        "paths": ["/go", "/go.html"]
+      }
+    ]
+  }
+}
