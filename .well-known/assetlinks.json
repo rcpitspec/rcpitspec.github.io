@@ -4,9 +4,8 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.rcpitspec.app",
-      "sha256_cert_fingerprints": [
-        "58:BC:5A:C0:70:26:85:00:30:F4:BB:2C:8C:2E:16:2F:30:90:43:14:89:1F:D6:FF:91:56:AD:72:B5:4A:52:66"
-      ]
+      "sha256_cert_fingerprints":
+        ["58:BC:5A:C0:70:26:85:00:30:F4:BB:2C:8C:2E:16:2F:30:90:43:14:89:1F:D6:FF:91:56:AD:72:B5:4A:52:66"]
     }
   },
   {
@@ -14,9 +13,8 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.rcpitspec.app.dev",
-      "sha256_cert_fingerprints": [
-        "4A:EB:D7:8A:98:94:D1:DA:C7:E9:08:30:02:43:23:12:8C:E3:EC:25:30:A5:0C:F0:06:D7:7F:6C:42:DC:D0:F5"
-      ]
+      "sha256_cert_fingerprints":
+        ["89:4D:16:B8:1E:E1:05:5B:C1:48:62:18:D4:97:9A:4D:80:96:39:3A:BD:C6:20:9A:58:10:D7:7F:F8:59:79:62", "4A:EB:D7:8A:98:94:D1:DA:C7:E9:08:30:02:43:23:12:8C:E3:EC:25:30:A5:0C:F0:06:D7:7F:6C:42:DC:D0:F5"]
     }
   }
 ]
