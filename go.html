@@ -56,6 +56,10 @@
   // URL は store_urls.dart と同期すること (2 箇所管理、アプリ ID 変更時は両方更新必要)。
   var APP_STORE_URL = 'https://apps.apple.com/jp/app/rc-pit-spec/id6761605402';
   var PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.rcpitspec.app';
+  // Android 専用 URL スキーム。`market://` はブラウザでは扱えず Play Store アプリが
+  // 直接 catch するため、確実にストアアプリを開ける (App Links 検証失敗時の保険)。
+  // package_name は lib/core/flavor_config.dart の `packageName` と同期する。
+  var PLAY_STORE_INTENT = 'market://details?id=com.rcpitspec.app';
   var FALLBACK_URL = 'https://rcpitspec.github.io/';
 
   document.getElementById('apple').href = APP_STORE_URL;
@@ -70,16 +74,21 @@
   var isIos = /iphone|ipad|ipod/.test(ua) || /ios|mac/.test(platform);
   var isAndroid = /android/.test(ua) || /android/.test(platform);
 
-  var target = null;
-  if (isIos) target = APP_STORE_URL;
-  else if (isAndroid) target = PLAY_STORE_URL;
-
-  if (target) {
-    // 即時リダイレクト + 5 秒経っても遷移しなければ fallback URL を表示する保険。
-    window.location.replace(target);
+  if (isIos) {
+    window.location.replace(APP_STORE_URL);
     setTimeout(function () {
       document.getElementById('status').textContent = 'ストアが開けない場合は下のボタンから手動で開いてください。';
     }, 5000);
+  } else if (isAndroid) {
+    // market:// → Play Store アプリで直接開く (アプリ未インストールでもストア起動)。
+    // 1.5 秒以内に遷移しない場合 (Play Store 無効化端末等) は https の Play Store
+    // ページに fallback。これにより App Links 検証が autoVerify 失敗中の端末でも
+    // 「ブラウザの Play Store ページ」ではなくストアアプリで開ける確率を上げる。
+    window.location.href = PLAY_STORE_INTENT;
+    setTimeout(function () {
+      window.location.replace(PLAY_STORE_URL);
+    }, 1500);
+    document.getElementById('status').textContent = 'Play Store を開いています…';
   } else {
     document.getElementById('status').textContent = 'スマートフォンでこのページを開くと自動的にストアへ移動します。';
   }
