@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RC Pit Spec - RC Setting Sharing App</title>
-  <meta name="description" content="An app to record, share, and AI-diagnose Tamiya RC car settings. Garage management, parts catalog, and setting sheets — all in one.">
+  <meta name="description" content="An app to record, share, and AI-diagnose Tamiya RC car settings. Lap timing with your phone camera, garage management, and setting sheets — all in one.">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -191,19 +191,37 @@
       gap: 0.75rem;
     }
 
-    .screenshot img {
-      width: 240px;
-      height: 520px;
-      object-fit: contain;
+    .screenshot img, .screenshot-wide img {
       border-radius: 24px;
       border: 1px solid rgba(0,255,255,0.15);
       box-shadow: 0 0 24px rgba(0,255,255,0.08);
       transition: border-color 0.3s, box-shadow 0.3s;
     }
 
-    .screenshot img:hover {
+    .screenshot img {
+      width: 240px;
+      height: 520px;
+      object-fit: contain;
+    }
+
+    .screenshot img:hover, .screenshot-wide img:hover {
       border-color: var(--neon-blue);
       box-shadow: var(--neon-glow);
+    }
+
+    /* 計測画面だけ横向き素材 (2868x1320)。横スクロールの縦帯に混ぜると行の高さが
+       縦カードに引かれて上に大きな空白が出るので、帯の外に独立して置く */
+    .screenshot-wide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .screenshot-wide img {
+      width: min(720px, 100%);
+      aspect-ratio: 2868 / 1320;
     }
 
     .screenshot-label {
@@ -391,6 +409,12 @@
     <div class="features">
 
       <div class="feature-card">
+        <div class="feature-icon">&#x1F3C1;</div>
+        <h3>Lap Timer</h3>
+        <p>Turn your phone camera into a lap timer. No transponder needed &mdash; time multiple cars at once by ID.</p>
+      </div>
+
+      <div class="feature-card">
         <div class="feature-icon">&#x1F3CE;</div>
         <h3>My Garage</h3>
         <p>Register your machines and manage settings in one place. Switch between multiple chassis seamlessly.</p>
@@ -406,12 +430,6 @@
         <div class="feature-icon">&#x1F9D0;</div>
         <h3>"Stubborn Old Man" AI Diagnosis</h3>
         <p>Gemini AI gives you a no-nonsense review of your settings. Real-time advice from a veteran's perspective.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">&#x1F4DA;</div>
-        <h3>Parts Catalog</h3>
-        <p>Search Tamiya genuine parts by category and chassis. Compatible chassis are visible at a glance.</p>
       </div>
 
       <div class="feature-card">
@@ -433,22 +451,26 @@
   <section>
     <h2 class="section-title">Screenshots</h2>
     <p class="section-sub">Pitch black &times; neon blue aesthetic</p>
+    <figure class="screenshot-wide">
+      <img src="shot_measure_en.webp" alt="Lap timing screen with lap times listed" loading="lazy">
+      <figcaption class="screenshot-label">Lap Timing</figcaption>
+    </figure>
     <div class="screenshots">
       <figure class="screenshot">
-        <img src="image_garage_en.jpg" alt="My Garage screen" loading="lazy">
-        <figcaption class="screenshot-label">My Garage</figcaption>
+        <img src="shot_chart_en.webp" alt="Driving log screen with a best-lap trend chart" loading="lazy">
+        <figcaption class="screenshot-label">Driving Log</figcaption>
       </figure>
       <figure class="screenshot">
-        <img src="image_overview_en.jpg" alt="Overview screen" loading="lazy">
-        <figcaption class="screenshot-label">Overview</figcaption>
-      </figure>
-      <figure class="screenshot">
-        <img src="image_ai_en.jpg" alt="AI diagnosis screen" loading="lazy">
-        <figcaption class="screenshot-label">AI Diagnosis</figcaption>
-      </figure>
-      <figure class="screenshot">
-        <img src="image_pit_lane_en.jpg" alt="Pit Lane screen" loading="lazy">
+        <img src="shot_pit_en.webp" alt="Pit Lane screen listing setups shared by other users" loading="lazy">
         <figcaption class="screenshot-label">Pit Lane</figcaption>
+      </figure>
+      <figure class="screenshot">
+        <img src="shot_ai_en.webp" alt="AI chat screen showing a setup suggestion" loading="lazy">
+        <figcaption class="screenshot-label">AI Advice</figcaption>
+      </figure>
+      <figure class="screenshot">
+        <img src="shot_garage_en.webp" alt="My Garage screen listing registered machines" loading="lazy">
+        <figcaption class="screenshot-label">My Garage</figcaption>
       </figure>
     </div>
   </section>
@@ -467,11 +489,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Garage slots</td><td>3</td><td>10</td><td>Unlimited</td></tr>
+        <tr><td>Garage slots</td><td>3</td><td>Unlimited</td><td>Unlimited</td></tr>
         <tr><td>AI tickets</td><td>3 / 24h<span class="plan-note">(rewarded ad)</span></td><td>15 / month</td><td>50 / month</td></tr>
         <tr><td>Sheet export</td><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr>
-        <tr><td>Pit Lane import</td><td>1 / 24h<span class="plan-note">(rewarded ad)</span></td><td>5 / 24h</td><td>Unlimited</td></tr>
-        <tr><td>Pit Lane post</td><td>1 / 24h<span class="plan-note">(rewarded ad)</span></td><td>5 / 24h</td><td>Unlimited</td></tr>
         <tr><td>Ads</td><td>Yes</td><td>None</td><td>None</td></tr>
       </tbody>
     </table>
@@ -485,7 +505,7 @@
   <section>
     <h2 class="section-title">Specifications</h2>
     <table class="spec-table">
-      <tr><th>Supported chassis</th><td>MB-01 / TT-02 / TRF421 (more to come)</td></tr>
+      <tr><th>Supported chassis</th><td>40+ chassis from Tamiya, Kyosho, YOKOMO, XRAY and more (not in the list? add your own)</td></tr>
       <tr><th>Supported OS</th><td>iOS / Android</td></tr>
       <tr><th>Pricing</th><td>Free with optional premium subscription</td></tr>
       <tr><th>Parts database</th><td>Over 1,400 Tamiya genuine parts</td></tr>

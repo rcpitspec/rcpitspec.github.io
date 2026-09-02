@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RC Pit Spec - RCセッティング共有アプリ</title>
-  <meta name="description" content="タミヤRCカーのセッティングを記録・共有・AI診断できるアプリ。ガレージ管理、パーツ図鑑、セッティングシート管理をこれ1つで。">
+  <meta name="description" content="タミヤRCカーのセッティングを記録・共有・AI診断できるアプリ。スマホのカメラでのラップ計測、ガレージ管理、セッティングシート管理をこれ1つで。">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -205,19 +205,37 @@
       gap: 0.75rem;
     }
 
-    .screenshot img {
-      width: 240px;
-      height: 520px;
-      object-fit: contain;
+    .screenshot img, .screenshot-wide img {
       border-radius: 24px;
       border: 1px solid rgba(0,255,255,0.15);
       box-shadow: 0 0 24px rgba(0,255,255,0.08);
       transition: border-color 0.3s, box-shadow 0.3s;
     }
 
-    .screenshot img:hover {
+    .screenshot img {
+      width: 240px;
+      height: 520px;
+      object-fit: contain;
+    }
+
+    .screenshot img:hover, .screenshot-wide img:hover {
       border-color: var(--neon-blue);
       box-shadow: var(--neon-glow);
+    }
+
+    /* 計測画面だけ横向き素材 (2868x1320)。横スクロールの縦帯に混ぜると行の高さが
+       縦カードに引かれて上に大きな空白が出るので、帯の外に独立して置く */
+    .screenshot-wide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .screenshot-wide img {
+      width: min(720px, 100%);
+      aspect-ratio: 2868 / 1320;
     }
 
     .screenshot-label {
@@ -406,6 +424,12 @@
     <div class="features">
 
       <div class="feature-card">
+        <div class="feature-icon">&#x1F3C1;</div>
+        <h3>ラップタイマー</h3>
+        <p>スマホのカメラがラップタイマーに。トランスポンダー不要で、ゼッケン別に複数台を同時計測。</p>
+      </div>
+
+      <div class="feature-card">
         <div class="feature-icon">&#x1F3CE;</div>
         <h3>マイガレージ</h3>
         <p>愛車を登録してセッティングを一元管理。複数台のマシンを自由に切り替え。</p>
@@ -421,12 +445,6 @@
         <div class="feature-icon">&#x1F9D0;</div>
         <h3>頑固親父AI診断</h3>
         <p>Gemini AIがあなたのセッティングを辛口レビュー。ベテラン目線のアドバイスをリアルタイムで。</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">&#x1F4DA;</div>
-        <h3>パーツ図鑑</h3>
-        <p>タミヤ純正パーツをカテゴリ・車種で検索。対応シャーシが一目でわかる。</p>
       </div>
 
       <div class="feature-card">
@@ -448,22 +466,26 @@
   <section>
     <h2 class="section-title">スクリーンショット</h2>
     <p class="section-sub">漆黒 &times; ネオンブルーの世界観</p>
+    <figure class="screenshot-wide">
+      <img src="shot_measure_ja.webp" alt="タイム計測画面。ラップタイムが1周ずつ並んでいる" loading="lazy">
+      <figcaption class="screenshot-label">ラップ計測</figcaption>
+    </figure>
     <div class="screenshots">
       <figure class="screenshot">
-        <img src="image_garage_ja.webp" alt="マイガレージ画面" loading="lazy">
-        <figcaption class="screenshot-label">マイガレージ</figcaption>
+        <img src="shot_chart_ja.webp" alt="走行ログ画面。ベストラップの推移グラフ" loading="lazy">
+        <figcaption class="screenshot-label">走行ログ</figcaption>
       </figure>
       <figure class="screenshot">
-        <img src="image_overview_ja.webp" alt="オーバービュー画面" loading="lazy">
-        <figcaption class="screenshot-label">オーバービュー</figcaption>
-      </figure>
-      <figure class="screenshot">
-        <img src="image_ai_ja.webp" alt="AI診断画面" loading="lazy">
-        <figcaption class="screenshot-label">AI診断</figcaption>
-      </figure>
-      <figure class="screenshot">
-        <img src="image_pit_lane_ja.webp" alt="ピットレーン画面" loading="lazy">
+        <img src="shot_pit_ja.webp" alt="ピットレーン画面。他ユーザーの投稿一覧" loading="lazy">
         <figcaption class="screenshot-label">ピットレーン</figcaption>
+      </figure>
+      <figure class="screenshot">
+        <img src="shot_ai_ja.webp" alt="AI相談画面。セッティング提案が出ている" loading="lazy">
+        <figcaption class="screenshot-label">AI相談</figcaption>
+      </figure>
+      <figure class="screenshot">
+        <img src="shot_garage_ja.webp" alt="マイガレージ画面。登録したマシンの一覧" loading="lazy">
+        <figcaption class="screenshot-label">マイガレージ</figcaption>
       </figure>
     </div>
   </section>
@@ -482,11 +504,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>ガレージ台数</td><td>3台</td><td>10台</td><td>無制限</td></tr>
+        <tr><td>ガレージ台数</td><td>3台</td><td>無制限</td><td>無制限</td></tr>
         <tr><td>AIチケット</td><td>3枚/24h<span class="plan-note">（広告視聴）</span></td><td>15枚/月</td><td>50枚/月</td></tr>
         <tr><td>シート出力</td><td>無制限</td><td>無制限</td><td>無制限</td></tr>
-        <tr><td>ピット取り込み</td><td>1件/24h<span class="plan-note">（広告視聴）</span></td><td>5件/24h</td><td>無制限</td></tr>
-        <tr><td>ピット投稿</td><td>1件/24h<span class="plan-note">（広告視聴）</span></td><td>5件/24h</td><td>無制限</td></tr>
         <tr><td>広告</td><td>あり</td><td>なし</td><td>なし</td></tr>
       </tbody>
     </table>
@@ -500,7 +520,7 @@
   <section>
     <h2 class="section-title">対応情報</h2>
     <table class="spec-table">
-      <tr><th>対応シャーシ</th><td>MB-01 / TT-02 / TRF421（順次追加予定）</td></tr>
+      <tr><th>対応シャーシ</th><td>タミヤ・京商・ヨコモ・XRAY 他 40 機種以上（一覧に無いマシンは自分で登録できます）</td></tr>
       <tr><th>対応OS</th><td>iOS / Android</td></tr>
       <tr><th>価格</th><td>基本無料（プレミアム機能はサブスクリプション）</td></tr>
       <tr><th>パーツDB</th><td>タミヤ純正パーツ 1,400件以上</td></tr>
