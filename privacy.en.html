@@ -51,7 +51,7 @@
   <a href="index.en.html" class="back">&larr; Back to top</a>
   <div class="lang-switch"><a href="privacy">日本語</a> | <strong>English</strong></div>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: May 10, 2026</p>
+  <p class="updated">Last updated: September 3, 2026</p>
 
   <p>RC Pit Spec ("the App") is an application provided by KG App Lab ("the Operator"). The Operator respects user privacy and handles information in accordance with this policy.</p>
 
@@ -65,6 +65,7 @@
         <li><strong>AI conversation:</strong> The user's messages, the current chassis settings, relevant parts catalog information, and the personality prompt of the selected AI partner character are sent to Google (Gemini API) to generate responses. <strong>Conversation history is stored on-device in a local SQLite database, retaining up to 100 sessions; older sessions are automatically deleted when this limit is exceeded.</strong> Conversation history is never persistently stored on our server (Firestore, etc.) and is removed when the App is uninstalled.</li>
         <li><strong>AI diagnosis:</strong> Similarly, chassis settings are sent to Google to obtain an evaluation. Diagnosis results are stored on the device only and not sent to our server (they are deleted when the App is uninstalled).</li>
         <li>Per Google's API terms of service, the data sent is not used to train AI models.</li>
+        <li><strong>AI error reports:</strong> Only when the user reports an AI message as incorrect, the text of that AI message, the chassis type, the setting information at that time (within the same scope as a Pit Lane post), an optional reason entered by the user, and the App version and language setting are stored on our server (Firestore) together with the reporter's anonymous UID. This data is used solely to improve the quality of AI responses. A report can be withdrawn within the App until a reason is selected; after that, deletion is handled through the request process in Section 6.</li>
       </ul>
     </li>
     <li><strong>Usage data:</strong> To enforce plan quotas, the AI ticket consumption count, the conversation mode turn consumption count, current plan type, and contract cycle start/reset dates are stored on our server.</li>
