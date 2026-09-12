@@ -59,7 +59,8 @@
   <ul>
     <li><strong>Anonymous identifier:</strong> An anonymous UID automatically generated per device. We do not collect personally identifiable information such as name or email address. The anonymous UID is stored on our server for poster identification, plan management, and abuse prevention.</li>
     <li><strong>Setting data:</strong> The RC car configuration entered by the user. This is stored on the device and not sent to our server.</li>
-    <li><strong>Shared data (Pit posts):</strong> Only when the user chooses to share via the "Pit" feature, the following are stored on our server: <strong>machine name</strong>, partial setting values, course name, environment information (temperature, surface, grip, etc.), and the language setting at the time of posting. The poster's anonymous UID is also stored, used for post deletion and to address inappropriate content. Users may optionally enter a <strong>public handle name</strong> at the time of posting (displayed as "Anonymous" if left blank). The entered handle name is stored only for the post in question and is not linked to any cross-device profile.</li>
+    <li><strong>Shared data (Pit posts):</strong> Only when the user chooses to share via the "Pit" feature, the following are stored on our server: <strong>machine name</strong>, partial setting values, course name, environment information (temperature, surface, grip, etc.), and the language setting at the time of posting. <strong>If photos are attached to a post, those images are also stored on our server (Firebase Cloud Storage) and are publicly viewable by anyone who can browse the Pit.</strong> On the posting screen, photos already registered for that machine are <strong>attached by default</strong>. Each one can be removed before posting, and removed photos are not sent. The poster's anonymous UID is also stored, used for post deletion and to address inappropriate content. Users may optionally enter a <strong>public handle name</strong> at the time of posting (displayed as "Anonymous" if left blank). The entered handle name is stored only for the post in question and is not linked to any cross-device profile.</li>
+    <li><strong>Machine support requests:</strong> Only when the user selects "Request" on the confirmation screen shown after adding a machine that is not in the list, the machine name entered, an identifier for that machine within the App, how the machine was added (whether the user searched by name or opened it directly from the list), the time of the request, and the App version and language setting are stored on our server (Firestore) together with the sender's anonymous UID. This data is used solely to decide which machines the App will officially support in the future. Sending is optional, and the machine has already been added either way. <strong>The setting values and photos for the added machine are not sent</strong>. This request cannot be withdrawn from within the App, so deletion is handled through the request process in Section 6. Please do not enter personally identifiable information in the machine name.</li>
     <li><strong>AI feature inputs and outputs:</strong>
       <ul>
         <li><strong>AI conversation:</strong> The user's messages, the current chassis settings, relevant parts catalog information, and the personality prompt of the selected AI partner character are sent to Google (Gemini API) to generate responses. <strong>Conversation history is stored on-device in a local SQLite database, retaining up to 100 sessions; older sessions are automatically deleted when this limit is exceeded.</strong> Except when sent as an "AI error report" described below, conversation history is never persistently stored on our server (Firestore, etc.), and it is removed when the App is uninstalled.</li>
@@ -79,7 +80,8 @@
   <h2>2. Information We Do Not Collect</h2>
   <ul>
     <li>Personally identifiable information such as name, address, phone number, or email address</li>
-    <li>Device data such as location, contacts, photos, or camera</li>
+    <li>Device data such as location or contacts</li>
+    <li>Regarding the camera and photos: images taken or selected for machines and parts, and the camera feed used for lap measurement, are <strong>processed and stored entirely on the device and never sent to our server</strong> (the only images stored on our server are those attached to a Pit post, as described in Section 1). Photo selection receives one user-chosen image at a time; we never read the photo library as a whole</li>
     <li>Payment information (handled directly by Apple / Google)</li>
     <li>Additional identifiers such as device fingerprints or hashed IP addresses</li>
   </ul>
@@ -92,6 +94,7 @@
     <li>Detecting and preventing abuse</li>
     <li>Collecting crash and error information for product improvement</li>
     <li>Improving features and optimizing UI based on aggregated usage</li>
+    <li>Deciding which machines the App will support and expanding the catalog</li>
   </ul>
 
   <h2>4. Sharing with Third Parties</h2>
@@ -111,7 +114,7 @@
   </ul>
 
   <h2>5. Data Storage</h2>
-  <p>Data stored in Firebase (Firestore / Cloud Functions) is managed in Japan (Tokyo region). AI response generation (Gemini API) is processed in regions designated by Google. Data on the device is removed when the App is uninstalled.</p>
+  <p>Data stored in Firebase (Firestore / Cloud Functions / Cloud Storage) is managed in Japan (Tokyo region). AI response generation (Gemini API) is processed in regions designated by Google. Data on the device is removed when the App is uninstalled.</p>
 
   <h2 id="data-deletion">6. Data Deletion / Disclosure Requests</h2>
   <p>Users may request disclosure, correction, deletion, or suspension of use of their data at any time. Please contact us at the address below. We will respond within 30 days of receipt.</p>
