@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>RCカーがまっすぐ走らないときに見直したいところ | RC Pit Spec</title>
+  <meta name="description" content="ツーリングカーやMシャーシが直線でまっすぐ走らない・ふらつくときに、見直されることが多いポイントをまとめました。試しやすい対策 5 つと、ステアリング・トー角・サスの渋り・車高の考え方。">
+  <link rel="canonical" href="https://rcpitspec.github.io/tips/straight-line.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RCカーがまっすぐ走らないときに見直したいところ">
+  <meta property="og:description" content="直線でどちらかに流れたりトリムが合わないときに、まず試したい対策と詳しい説明に分けてまとめました。">
+  <meta property="og:url" content="https://rcpitspec.github.io/tips/straight-line.html">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #000000;
+      --card: #111111;
+      --neon-blue: #00ffff;
+      --gold: #ffd700;
+      --white: #ffffff;
+      --white70: rgba(255,255,255,0.72);
+      --white40: rgba(255,255,255,0.45);
+      --line: rgba(255,255,255,0.08);
+      --neon-glow: 0 0 20px rgba(0,255,255,0.3);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.9;
+      font-size: 18px;
+      overflow-x: hidden;
+    }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+    header.site {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+    }
+    header.site .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+    header.site a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header.site a span { color: var(--neon-blue); }
+    header.site .crumb-sep { color: var(--white40); }
+    header.site a.crumb-parent { color: var(--white70); text-decoration: none; font-weight: normal; }
+    header.site a.crumb-parent:hover { color: var(--neon-blue); }
+
+    article { padding: 40px 0 24px; }
+
+    .kicker {
+      display: inline-block;
+      padding: 0.25rem 0.9rem;
+      border: 1px solid var(--neon-blue);
+      border-radius: 999px;
+      color: var(--neon-blue);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      line-height: 1.45;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+
+    h2 {
+      font-size: 1.35rem;
+      color: var(--neon-blue);
+      text-shadow: var(--neon-glow);
+      margin: 2.6rem 0 0.9rem;
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      color: var(--gold);
+      margin: 1.8rem 0 0.5rem;
+      line-height: 1.5;
+    }
+
+    p { margin-bottom: 1rem; }
+    ul { margin: 0 0 1rem 1.3rem; }
+    li { margin-bottom: 0.45rem; }
+    strong { color: var(--white); }
+
+    .points { margin: 0.4rem 0 0.8rem 1.4rem; }
+    .points li { margin-bottom: 0.6rem; }
+    .small { color: var(--white40); font-size: 0.9rem; }
+
+
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0 1.2rem;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { color: var(--gold); font-weight: 700; white-space: nowrap; }
+    td { color: var(--white70); }
+
+    .related-tips {
+      margin: 2.5rem 0 1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+    .related-tips h3 { margin-top: 0; margin-bottom: 0.8rem; }
+    .related-tips ul { list-style: none; margin: 0; padding: 0; }
+    .related-tips li { margin-bottom: 0.5rem; }
+    .related-tips a { color: var(--neon-blue); text-decoration: none; font-weight: 500; }
+    .related-tips a:hover { text-decoration: underline; }
+
+    .cta {
+      margin: 3rem 0 1rem;
+      background: var(--card);
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .cta h2 { margin-top: 0; }
+    .cta p { color: var(--white70); }
+    .store-badges {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 16px 0 0;
+    }
+    .store-badge { display: inline-flex; align-items: center; }
+    .store-badge img { height: 52px; width: auto; display: block; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--white40);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--line);
+    }
+    footer a { color: var(--neon-blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      body { font-size: 17px; }
+      th { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap nav">
+      <a href="../index.html">RC <span>Pit</span> Spec</a>
+      <span class="crumb-sep">/</span>
+      <a href="index.html" class="crumb-parent">セッティングのヒント</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <span class="kicker">セッティングのヒント</span>
+      <h1>RCカーがまっすぐ走らないときに見直したいところ</h1>
+
+      <h2>こんなとき</h2>
+      <ul>
+        <li>直線を走っているのに左右どちらかへ流れてしまう</li>
+        <li>送信機のトリムを合わせても、走らせるたびにズレる</li>
+        <li>直進中に車体がピクピクとふらついて落ち着かない</li>
+      </ul>
+
+      <h2>まず試したい対策</h2>
+      <ol class="points">
+        <li><strong>ステアリングのガタと固定を見る</strong> … サーボの緩みや、元の位置に戻らないことが多い</li>
+        <li><strong>フロントを少しトーインへ</strong> … トーアウトが強すぎると直線でふらつきやすい傾向</li>
+        <li><strong>足回りの動き（渋り）を確かめる</strong> … ダンパーを外し、アームが軽く動くか確認する</li>
+        <li><strong>左右の車高とリバウンドを揃える</strong> … 左右差があると加減速でどちらかに引っ張られやすい</li>
+        <li><strong>リヤのトーインを付けすぎていないか見直す</strong> … 付けすぎると、かえって直線でフラつくことがある</li>
+      </ol>
+      <p class="small">※ どれも目安です。<br>車や路面で逆に感じることもあるので、一か所ずつ変えて確かめるのがおすすめです。</p>
+
+      <h2>対策をもう少し詳しく</h2>
+
+      <h3>いつ起きるかで、見る場所が変わる</h3>
+      <table>
+        <tr><th>いつ</th><th>疑われることが多いところ</th></tr>
+        <tr><td>走るたびにズレる</td><td>サーボの固定・サーボセイバーのガタ</td></tr>
+        <tr><td>ずっと片側へ流れる</td><td>左右の車高差・キャンバー差・タイヤ径の差</td></tr>
+        <tr><td>直線でふらつく</td><td>フロントのトーアウト・リヤトーインの付けすぎ</td></tr>
+        <tr><td>加減速で曲がる</td><td>サスの渋り・スタビの左右差</td></tr>
+      </table>
+
+      <h3>ステアリングのニュートラルとガタ</h3>
+      <p>まっすぐ走らない原因でいちばん多いのが、ステアリングが正確にセンターへ戻っていないケースです。<br>
+        サーボセイバーのガタやサーボの固定の緩みがあると、走るたびにズレてしまいます。<br>
+        送信機のトリムを触る前に、ロッド長などで機械的なセンターを合わせるのがおすすめです。</p>
+
+      <h3>トー角（フロント・リヤ）</h3>
+      <p>フロントがトーアウトになりすぎていると、直進中に少しの操作でふらつきやすくなります。<br>
+        少し内向き（トーイン）かニュートラルに戻すと、直進が落ち着く傾向があります。<br>
+        リヤのトーインも付けすぎると直線でフラつくため、2.5〜3度前後を目安にする人が多いようです。</p>
+
+      <h3>サスペンションの渋りと左右差</h3>
+      <p>左右どちらかの足回りに渋りがあると、車体が均等に沈まずまっすぐ走りません。<br>
+        ダンパーを外した状態でサスアームを持ち上げ、スムーズに自重で落ちるか確かめるのが大切です。</p>
+
+      <h3>車高とリバウンドのバランス</h3>
+      <p>左右の車高やリバウンドが揃っていないと、加速や減速で車体がどちらかに引っ張られやすくなります。<br>
+        平らなボードの上で、左右の高さとストロークが均等か確認してみるのが手早い方法です。</p>
+
+      <h3>スタビライザーの左右差</h3>
+      <p>スタビライザーは左右の効き始めにズレがあると、直進で片側だけ突っ張る原因になります。<br>
+        ロッドの長さを微調整して、左右同時に効き始めるように合わせるのが定番です。</p>
+
+      <h3>やりすぎに注意</h3>
+      <p>直進性を重視しすぎると、今度はコーナーの入口で曲がりにくく感じることがあります。<br>
+        ストレートで自然にまっすぐ走り、コーナーでも気持ちよく頭が入るバランスを探るのがおすすめです。</p>
+
+      <div class="related-tips">
+        <h3>あわせて見直したいトラブル</h3>
+        <ul>
+          <li><a href="understeer.html">RCカーが曲がらない（アンダー）ときに見直したいところ &rarr;</a></li>
+          <li><a href="rear-slide.html">RCカーのリヤが滑る・スピンするときに見直したいところ &rarr;</a></li>
+          <li><a href="highside.html">RCカーがハイサイド（転倒）するときに見直したいところ &rarr;</a></li>
+          <li><a href="index.html">セッティングのヒント一覧を見る &rarr;</a></li>
+        </ul>
+      </div>
+      <div class="cta">
+        <h2>変えたこと、走りの変化を記録しておこう</h2>
+        <p>
+          RC Pit Spec は、RCカーのセッティングの記録・比較ができるアプリです。<br>
+          変えた調整と走りの変化を残しておけば、次に同じ悩みが出たときに見返せます。<br>
+          どこを見直せばいいか、AI に相談することもできます。
+        </p>
+        <div class="store-badges">
+          <a href="https://apps.apple.com/app/apple-store/id6761605402?pt=113277870&amp;ct=tips-straight-line&amp;mt=8" class="store-badge" aria-label="App Store でダウンロード">
+            <img src="../app_store.svg" alt="Download on the App Store">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.rcpitspec.app&amp;utm_source=tips&amp;utm_campaign=straight-line" class="store-badge" aria-label="Google Play で手に入れよう">
+            <img src="../google_play.svg" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>
+      <a href="../privacy.html">プライバシーポリシー</a> &nbsp;|&nbsp;
+      <a href="../terms.html">利用規約</a> &nbsp;|&nbsp;
+      <a href="../tokushoho.html">特定商取引法に基づく表記</a> &nbsp;|&nbsp;
+      &copy; 2026 RC Pit Spec
+    </p>
+  </footer>
+
+</body>
+</html>
