@@ -42,6 +42,12 @@
       border-bottom: 1px solid var(--line);
       padding: 14px 0;
     }
+    header.site .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
     header.site a {
       color: var(--gold);
       text-decoration: none;
@@ -49,6 +55,9 @@
       letter-spacing: 0.02em;
     }
     header.site a span { color: var(--neon-blue); }
+    header.site .crumb-sep { color: var(--white40); }
+    header.site a.crumb-parent { color: var(--white70); text-decoration: none; font-weight: normal; }
+    header.site a.crumb-parent:hover { color: var(--neon-blue); }
 
     article { padding: 40px 0 24px; }
 
@@ -111,6 +120,19 @@
     th { color: var(--gold); font-weight: 700; white-space: nowrap; }
     td { color: var(--white70); }
 
+    .related-tips {
+      margin: 2.5rem 0 1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+    .related-tips h3 { margin-top: 0; margin-bottom: 0.8rem; }
+    .related-tips ul { list-style: none; margin: 0; padding: 0; }
+    .related-tips li { margin-bottom: 0.5rem; }
+    .related-tips a { color: var(--neon-blue); text-decoration: none; font-weight: 500; }
+    .related-tips a:hover { text-decoration: underline; }
+
     .cta {
       margin: 3rem 0 1rem;
       background: var(--card);
@@ -151,7 +173,11 @@
 <body>
 
   <header class="site">
-    <div class="wrap"><a href="../index.html">RC <span>Pit</span> Spec</a></div>
+    <div class="wrap nav">
+      <a href="../index.html">RC <span>Pit</span> Spec</a>
+      <span class="crumb-sep">/</span>
+      <a href="index.html" class="crumb-parent">セッティングのヒント</a>
+    </div>
   </header>
 
   <main class="wrap">
@@ -211,6 +237,14 @@
       <h3>やりすぎに注意</h3>
       <p>曲がるほうへ振りすぎると、今度はリヤが滑ったりスピンしやすくなったりします。<br>
         運転しやすいところを基準にして、「曲がらないときはここ」という引き出しを持っておくと、会場で迷いにくくなります。</p>
+
+      <div class="related-tips">
+        <h3>あわせて見直したいトラブル</h3>
+        <ul>
+          <li><a href="rear-slide.html">RCカーのリヤが滑る・スピンするときに見直したいところ &rarr;</a></li>
+          <li><a href="index.html">セッティングのヒント一覧を見る &rarr;</a></li>
+        </ul>
+      </div>
 
       <div class="cta">
         <h2>変えたこと、走りの変化を記録しておこう</h2>

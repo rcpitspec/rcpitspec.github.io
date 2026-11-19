@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>RCカー・ラジコンのセッティングヒントとお悩み解決 | RC Pit Spec</title>
+  <meta name="description" content="ツーリングカーやMシャーシなどのRCカーでよくあるトラブル（曲がらない・リヤが滑る・ハイサイドなど）の対策をまとめたセッティングガイド。ピットで手早く見直せるポイントを解説。">
+  <link rel="canonical" href="https://rcpitspec.github.io/tips/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RCカー・ラジコンのセッティングヒントとお悩み解決 | RC Pit Spec">
+  <meta property="og:description" content="曲がらない、リヤが滑るなど、サーキットのピット現場で役立つRCカーのセッティング対策まとめ。">
+  <meta property="og:url" content="https://rcpitspec.github.io/tips/">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #000000;
+      --card: #111111;
+      --card-hover: #181818;
+      --neon-blue: #00ffff;
+      --gold: #ffd700;
+      --white: #ffffff;
+      --white70: rgba(255,255,255,0.72);
+      --white40: rgba(255,255,255,0.45);
+      --line: rgba(255,255,255,0.08);
+      --neon-glow: 0 0 20px rgba(0,255,255,0.3);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.8;
+      font-size: 17px;
+      overflow-x: hidden;
+    }
+
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+    header.site {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+    }
+    header.site .nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+    header.site a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header.site a span { color: var(--neon-blue); }
+    header.site .crumb-sep { color: var(--white40); }
+    header.site .current { color: var(--white70); }
+
+    .hero {
+      padding: 48px 0 32px;
+      text-align: center;
+    }
+    .kicker {
+      display: inline-block;
+      padding: 0.25rem 0.9rem;
+      border: 1px solid var(--neon-blue);
+      border-radius: 999px;
+      color: var(--neon-blue);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      line-height: 1.4;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      color: var(--white70);
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .category-section {
+      margin: 36px 0;
+    }
+    .category-title {
+      font-size: 1.3rem;
+      color: var(--neon-blue);
+      text-shadow: var(--neon-glow);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 600px) {
+      .card-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .card:hover {
+      border-color: rgba(0,255,255,0.4);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+    .card-tag {
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .card h2 {
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: var(--white70);
+      line-height: 1.6;
+    }
+    .card .more {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--neon-blue);
+      font-weight: 600;
+    }
+
+    .cta {
+      margin: 48px 0 24px;
+      background: var(--card);
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .cta h2 {
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+    .cta p { color: var(--white70); margin-bottom: 1rem; }
+    .store-badges {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 8px 0 0;
+    }
+    .store-badge { display: inline-flex; align-items: center; }
+    .store-badge img { height: 50px; width: auto; display: block; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--white40);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
+    }
+    footer a { color: var(--neon-blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap nav">
+      <a href="../index.html">RC <span>Pit</span> Spec</a>
+      <span class="crumb-sep">/</span>
+      <span class="current">セッティングのヒント</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <span class="kicker">トラブルシューティング & ノウハウ</span>
+      <h1>RCカー・ラジコンの<br>セッティングヒントとお悩み解決</h1>
+      <p class="hero-sub">
+        「曲がらない」「リヤが滑る」「ハイサイドする」など、サーキット走行やレースでよくあるトラブルの対策をまとめました。ピットで手早く試せる順に解説しています。
+      </p>
+    </div>
+
+    <section class="category-section">
+      <h2 class="category-title">&#x1F527; 症状から探す（トラブルシューティング）</h2>
+      <div class="card-grid">
+        <a href="understeer.html" class="card">
+          <div class="card-tag">ハンドリング / 旋回</div>
+          <h2>RCカーが曲がらない（アンダー）ときに見直したいところ</h2>
+          <p>頭が入らない、コーナー出口で外へふくらむときに。舵角・リヤトーイン・デフ・ダンパーなど、手早く試せる対策 5 選。</p>
+          <div class="more">記事を読む &rarr;</div>
+        </a>
+
+        <a href="rear-slide.html" class="card">
+          <div class="card-tag">グリップ / 安定性</div>
+          <h2>RCカーのリヤが滑る・スピンするときに見直したいところ</h2>
+          <p>コーナー途中でのスピンや立ち上がりで抜けるときに。キャンバー・ウイング・足の硬さ・トーイン・デフの考え方。</p>
+          <div class="more">記事を読む &rarr;</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="cta">
+      <h2>セッティングと走りの変化をスマホで記録</h2>
+      <p>
+        RC Pit Spec は、RCカーのセッティング記録・比較ができる専用アプリです。<br>
+        ピットで変えた箇所のメモを残しておけば、次のレースや走行会で迷いません。<br>
+        どこを見直せばいいか、AI に診断してもらうこともできます。
+      </p>
+      <div class="store-badges">
+        <a href="https://apps.apple.com/app/apple-store/id6761605402?pt=113277870&amp;ct=tips-index&amp;mt=8" class="store-badge" aria-label="App Store でダウンロード">
+          <img src="../app_store.svg" alt="Download on the App Store">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.rcpitspec.app&amp;utm_source=tips&amp;utm_campaign=index" class="store-badge" aria-label="Google Play で手に入れよう">
+          <img src="../google_play.svg" alt="Get it on Google Play">
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      <a href="../index.html">トップページ</a> &nbsp;|&nbsp;
+      <a href="../privacy.html">プライバシーポリシー</a> &nbsp;|&nbsp;
+      <a href="../terms.html">利用規約</a> &nbsp;|&nbsp;
+      <a href="../tokushoho.html">特定商取引法に基づく表記</a> &nbsp;|&nbsp;
+      &copy; 2026 RC Pit Spec
+    </p>
+  </footer>
+
+</body>
+</html>
