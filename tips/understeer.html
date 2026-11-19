@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RCカーが曲がらない（アンダー）ときに見直したいところ | RC Pit Spec</title>
+  <meta name="description" content="ツーリングカーやMシャーシが曲がらない（アンダー）ときに、見直されることが多いポイントをまとめました。試しやすい対策 5 つと、舵角・トー・デフ・ダンパー・スタビの考え方。">
+  <link rel="canonical" href="https://rcpitspec.github.io/tips/understeer.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RCカーが曲がらない（アンダー）ときに見直したいところ">
+  <meta property="og:description" content="見直されることが多いポイントを、まず試したい対策と詳しい説明に分けてまとめました。">
+  <meta property="og:url" content="https://rcpitspec.github.io/tips/understeer.html">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #000000;
+      --card: #111111;
+      --neon-blue: #00ffff;
+      --gold: #ffd700;
+      --white: #ffffff;
+      --white70: rgba(255,255,255,0.72);
+      --white40: rgba(255,255,255,0.45);
+      --line: rgba(255,255,255,0.08);
+      --neon-glow: 0 0 20px rgba(0,255,255,0.3);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.9;
+      font-size: 18px;
+      overflow-x: hidden;
+    }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+    header.site {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+    }
+    header.site a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header.site a span { color: var(--neon-blue); }
+
+    article { padding: 40px 0 24px; }
+
+    .kicker {
+      display: inline-block;
+      padding: 0.25rem 0.9rem;
+      border: 1px solid var(--neon-blue);
+      border-radius: 999px;
+      color: var(--neon-blue);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      line-height: 1.45;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+
+    h2 {
+      font-size: 1.35rem;
+      color: var(--neon-blue);
+      text-shadow: var(--neon-glow);
+      margin: 2.6rem 0 0.9rem;
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      color: var(--gold);
+      margin: 1.8rem 0 0.5rem;
+      line-height: 1.5;
+    }
+
+    p { margin-bottom: 1rem; }
+    ul { margin: 0 0 1rem 1.3rem; }
+    li { margin-bottom: 0.45rem; }
+    strong { color: var(--white); }
+
+    .points { margin: 0.4rem 0 0.8rem 1.4rem; }
+    .points li { margin-bottom: 0.6rem; }
+    .small { color: var(--white40); font-size: 0.9rem; }
+
+
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0 1.2rem;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { color: var(--gold); font-weight: 700; white-space: nowrap; }
+    td { color: var(--white70); }
+
+    .cta {
+      margin: 3rem 0 1rem;
+      background: var(--card);
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .cta h2 { margin-top: 0; }
+    .cta p { color: var(--white70); }
+    .store-badges {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 16px 0 0;
+    }
+    .store-badge { display: inline-flex; align-items: center; }
+    .store-badge img { height: 52px; width: auto; display: block; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--white40);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--line);
+    }
+    footer a { color: var(--neon-blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      body { font-size: 17px; }
+      th { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap"><a href="../index.html">RC <span>Pit</span> Spec</a></div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <span class="kicker">セッティングのヒント</span>
+      <h1>RCカーが曲がらない（アンダー）ときに見直したいところ</h1>
+
+      <h2>こんなとき</h2>
+      <ul>
+        <li>ハンドルを切っても頭が入っていかない</li>
+        <li>コーナーの途中から外へふくらんでいく</li>
+        <li>ヘアピンや小さいコーナーで回りきれない</li>
+      </ul>
+
+      <h2>まず試したい対策</h2>
+      <ol class="points">
+        <li><strong>舵角を見直す</strong> … 送信機で絞っているなら少し戻す。路面のグリップが上がると足りなくなりやすい</li>
+        <li><strong>リヤのトーインを減らす</strong> … 付けすぎると曲がりにくくなる傾向。曲がるところまで少しずつ</li>
+        <li><strong>リヤのデフを柔らかくする</strong> … 硬いデフやボールデフは前に出るかわりに曲がりにくいことが多い</li>
+        <li><strong>フロントのダンパーを寝かせる</strong> … 立てるとアンダー寄り、寝かせると曲がりやすい傾向</li>
+        <li><strong>スタビを細くする・外す</strong> … 効かせすぎると入口から曲がらなくなることがある</li>
+      </ol>
+      <p class="small">※ どれも目安です。<br>車や路面で逆に感じることもあるので、一か所ずつ変えて確かめるのがおすすめです。</p>
+
+      <h2>対策をもう少し詳しく</h2>
+
+      <h3>いつ曲がらないかで、見る場所が変わる</h3>
+      <table>
+        <tr><th>いつ</th><th>疑われることが多いところ</th></tr>
+        <tr><td>切り始めで頭が入らない</td><td>舵角・スタビ・フロントのダンパー</td></tr>
+        <tr><td>コーナーの途中から出口でふくらむ</td><td>リヤのトーイン・リヤのデフ・リヤが食いすぎている</td></tr>
+        <tr><td>小さいコーナーだけ回りきれない</td><td>フロントがダイレクト（スプール）</td></tr>
+        <tr><td>走り出しの数周だけ曲がらない</td><td>タイヤやデフがまだ温まっていない</td></tr>
+        <tr><td>暑い日の後半に曲がらなくなる</td><td>タイヤがタレてきている</td></tr>
+      </table>
+
+      <h3>舵角</h3>
+      <p>リヤが滑るときに絞った舵角が、そのまま足りなくなっていることがあります。<br>
+        車のセットを触る前に、まず送信機で少し戻して比べると手早く確かめられます。</p>
+
+      <h3>リヤのトーイン・キャンバー</h3>
+      <p>リヤのトーインは減らすほど曲がりやすく、直線も伸びやすい一方、リヤは落ち着かなくなります。<br>
+        リヤのキャンバーを少し付けるのも、リヤが食いすぎて曲がらないときに試されることが多い方法です。</p>
+
+      <h3>デフ</h3>
+      <p>リヤのギヤデフは柔らかいほど曲がりやすく、硬いほど立ち上がりで前に出るかわりにアンダー寄りになる傾向があります。<br>
+        ボールデフからギヤデフに替えると曲がりやすくなったと感じる人が多いようです。</p>
+
+      <h3>ダンパー・スタビ</h3>
+      <p>フロントのダンパーを寝かせたり、リヤの足を少し柔らかくしたりすると、曲がりやすくなることが多いです。<br>
+        スタビは付けて曲がらなくなったと感じたら、まず外して比べてみるのがおすすめです。</p>
+
+      <h3>シャーシの締めすぎ</h3>
+      <p>補強のプレートやステフナーをビスで全部しっかり留めると、シャーシが突っ張って曲がりにくくなることがあります。<br>
+        留める本数を減らすと、曲がりが戻ることもあります。</p>
+
+      <h3>やりすぎに注意</h3>
+      <p>曲がるほうへ振りすぎると、今度はリヤが滑ったりスピンしやすくなったりします。<br>
+        運転しやすいところを基準にして、「曲がらないときはここ」という引き出しを持っておくと、会場で迷いにくくなります。</p>
+
+      <div class="cta">
+        <h2>変えたこと、走りの変化を記録しておこう</h2>
+        <p>
+          RC Pit Spec は、RCカーのセッティングの記録・比較ができるアプリです。<br>
+          変えた調整と走りの変化を残しておけば、次に同じ悩みが出たときに見返せます。<br>
+          どこを見直せばいいか、AI に相談することもできます。
+        </p>
+        <div class="store-badges">
+          <a href="https://apps.apple.com/app/id6761605402" class="store-badge" aria-label="App Store でダウンロード">
+            <img src="../app_store.svg" alt="Download on the App Store">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.rcpitspec.app&amp;utm_source=tips&amp;utm_campaign=understeer" class="store-badge" aria-label="Google Play で手に入れよう">
+            <img src="../google_play.svg" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>
+      <a href="../privacy.html">プライバシーポリシー</a> &nbsp;|&nbsp;
+      <a href="../terms.html">利用規約</a> &nbsp;|&nbsp;
+      <a href="../tokushoho.html">特定商取引法に基づく表記</a> &nbsp;|&nbsp;
+      &copy; 2026 RC Pit Spec
+    </p>
+  </footer>
+
+</body>
+</html>

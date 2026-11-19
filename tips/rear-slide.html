@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RCカーのリヤが滑る・スピンするときに見直したいところ | RC Pit Spec</title>
+  <meta name="description" content="ツーリングカーやMシャーシでリヤが滑る・スピンするときに、見直されることが多いポイントをまとめました。試しやすい対策 5 つと、キャンバー・ウイング・ダンパー・トー・デフの考え方。">
+  <link rel="canonical" href="https://rcpitspec.github.io/tips/rear-slide.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RCカーのリヤが滑る・スピンするときに見直したいところ">
+  <meta property="og:description" content="見直されることが多いポイントを、まず試したい対策と詳しい説明に分けてまとめました。">
+  <meta property="og:url" content="https://rcpitspec.github.io/tips/rear-slide.html">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #000000;
+      --card: #111111;
+      --neon-blue: #00ffff;
+      --gold: #ffd700;
+      --white: #ffffff;
+      --white70: rgba(255,255,255,0.72);
+      --white40: rgba(255,255,255,0.45);
+      --line: rgba(255,255,255,0.08);
+      --neon-glow: 0 0 20px rgba(0,255,255,0.3);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.9;
+      font-size: 18px;
+      overflow-x: hidden;
+    }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+    header.site {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+    }
+    header.site a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header.site a span { color: var(--neon-blue); }
+
+    article { padding: 40px 0 24px; }
+
+    .kicker {
+      display: inline-block;
+      padding: 0.25rem 0.9rem;
+      border: 1px solid var(--neon-blue);
+      border-radius: 999px;
+      color: var(--neon-blue);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      line-height: 1.45;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+
+    h2 {
+      font-size: 1.35rem;
+      color: var(--neon-blue);
+      text-shadow: var(--neon-glow);
+      margin: 2.6rem 0 0.9rem;
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      color: var(--gold);
+      margin: 1.8rem 0 0.5rem;
+      line-height: 1.5;
+    }
+
+    p { margin-bottom: 1rem; }
+    ul { margin: 0 0 1rem 1.3rem; }
+    li { margin-bottom: 0.45rem; }
+    strong { color: var(--white); }
+
+    .points { margin: 0.4rem 0 0.8rem 1.4rem; }
+    .points li { margin-bottom: 0.6rem; }
+    .small { color: var(--white40); font-size: 0.9rem; }
+
+
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0 1.2rem;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { color: var(--gold); font-weight: 700; white-space: nowrap; }
+    td { color: var(--white70); }
+
+    .cta {
+      margin: 3rem 0 1rem;
+      background: var(--card);
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .cta h2 { margin-top: 0; }
+    .cta p { color: var(--white70); }
+    .store-badges {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 16px 0 0;
+    }
+    .store-badge { display: inline-flex; align-items: center; }
+    .store-badge img { height: 52px; width: auto; display: block; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--white40);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--line);
+    }
+    footer a { color: var(--neon-blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      body { font-size: 17px; }
+      th { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap"><a href="../index.html">RC <span>Pit</span> Spec</a></div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <span class="kicker">セッティングのヒント</span>
+      <h1>RCカーのリヤが滑る・スピンするときに見直したいところ</h1>
+
+      <h2>こんなとき</h2>
+      <ul>
+        <li>コーナーの途中でリヤが流れる</li>
+        <li>アクセルを入れた瞬間にクルッと回ってしまう</li>
+        <li>リヤが落ち着かず、ずっと運転しにくい</li>
+      </ul>
+
+      <h2>まず試したい対策</h2>
+      <ol class="points">
+        <li><strong>リヤのキャンバーを起こす</strong> … 付けすぎていることが多い。1 度前後から試す人が多い</li>
+        <li><strong>ウイングを付ける・強くする</strong> … ウイングが無いとリヤが軽くなりやすい</li>
+        <li><strong>リヤの足を少し硬く</strong> … ダンパーを立てる・スプリングやオイルを一段硬く</li>
+        <li><strong>リヤのトーインを増やす</strong> … 安定しやすいかわりに曲がりにくくなる傾向</li>
+        <li><strong>会場では舵角を少し絞る</strong> … 送信機で 5〜10% 減らすだけで走らせやすくなることがある</li>
+      </ol>
+      <p class="small">※ どれも目安です。<br>車や路面で逆に感じることもあるので、一か所ずつ変えて確かめるのがおすすめです。</p>
+
+      <h2>対策をもう少し詳しく</h2>
+
+      <h3>いつ滑るかで、見る場所が変わる</h3>
+      <table>
+        <tr><th>いつ</th><th>疑われることが多いところ</th></tr>
+        <tr><td>コーナーの入口で巻き込む</td><td>リヤのデフが柔らかい・フロントが勝っている</td></tr>
+        <tr><td>コーナーの途中で流れる</td><td>リヤのキャンバー・リヤの足・ウイング</td></tr>
+        <tr><td>立ち上がりのアクセルで抜ける</td><td>リヤのデフが硬い・アクセルの開け方</td></tr>
+        <tr><td>ブレーキで回る</td><td>ブレーキが強すぎる（特に後輪駆動）</td></tr>
+      </table>
+
+      <h3>リヤのキャンバー</h3>
+      <p>付けすぎると路面に当たる面が減り、リヤが軽く感じやすくなります。<br>
+        まず起こしてみて、グリップしすぎると感じたら少しずつ付けていく順番が合わせやすいようです。</p>
+
+      <h3>ウイング・ボディ</h3>
+      <p>ウイングは高い位置ほど、強いものほどリヤを押さえやすい一方、直線は遅くなりがちです。<br>
+        弱いものから試すのがおすすめです。<br>
+        ボディのリヤ側を少し高く付けると、リヤが安定したように感じることもあります。</p>
+
+      <h3>リヤの足（ダンパー・スプリング・オイル）</h3>
+      <p>リヤのダンパーを立てる、スプリングやオイルを一段硬くする、はどれもリヤが踏ん張る方向に働くことが多いです。<br>
+        逆にリヤを柔らかくすると、ロールしすぎてスピンしやすくなることがあります。</p>
+
+      <h3>トーイン・車高</h3>
+      <p>リヤのトーインを増やすと安定しやすくなります。<br>
+        付けすぎると曲がりにくく、直線も遅くなりやすいです。<br>
+        リヤの車高をフロントより 0.5mm ほど高くするのも、手早く試せる方法です。</p>
+
+      <h3>デフ</h3>
+      <p>リヤのギヤデフが柔らかすぎると入口で巻き込みやすく、硬すぎると立ち上がりで抜けやすい傾向があります。<br>
+        リヤのグリップ自体が足りないときは、ボールデフにするとグリップ感が上がると感じる人が多いようです。</p>
+
+      <h3>走らせ方</h3>
+      <p>ステアリングをゆっくり、少ない舵角で切るほうがリヤは安定しやすいです。<br>
+        縁石の上や、新品タイヤ・清掃直後の路面は滑りやすいことがあります。</p>
+
+      <h3>やりすぎに注意</h3>
+      <p>リヤのグリップを上げすぎると、今度は曲がらなくなったり、グリップの高い路面では転倒（ハイサイド）しやすくなったりします。<br>
+        運転しやすいところを基準にして、「リヤが足りないときはここ」という引き出しを持っておくと、会場で迷いにくくなります。</p>
+
+      <div class="cta">
+        <h2>変えたこと、走りの変化を記録しておこう</h2>
+        <p>
+          RC Pit Spec は、RCカーのセッティングの記録・比較ができるアプリです。<br>
+          変えた調整と走りの変化を残しておけば、次に同じ悩みが出たときに見返せます。<br>
+          どこを見直せばいいか、AI に相談することもできます。
+        </p>
+        <div class="store-badges">
+          <a href="https://apps.apple.com/app/id6761605402" class="store-badge" aria-label="App Store でダウンロード">
+            <img src="../app_store.svg" alt="Download on the App Store">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.rcpitspec.app&amp;utm_source=tips&amp;utm_campaign=rear-slide" class="store-badge" aria-label="Google Play で手に入れよう">
+            <img src="../google_play.svg" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>
+      <a href="../privacy.html">プライバシーポリシー</a> &nbsp;|&nbsp;
+      <a href="../terms.html">利用規約</a> &nbsp;|&nbsp;
+      <a href="../tokushoho.html">特定商取引法に基づく表記</a> &nbsp;|&nbsp;
+      &copy; 2026 RC Pit Spec
+    </p>
+  </footer>
+
+</body>
+</html>
