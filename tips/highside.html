@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>RCカーがハイサイド（転倒）するときに見直したいところ | RC Pit Spec</title>
+  <meta name="description" content="ツーリングカーやMシャーシがコーナーでハイサイド（転倒）するときに、見直されることが多いポイントをまとめました。試しやすい対策 5 つと、舵角・キャンバー・車高・ダンパー・タイヤの考え方。">
+  <link rel="canonical" href="https://rcpitspec.github.io/tips/highside.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RCカーがハイサイド（転倒）するときに見直したいところ">
+  <meta property="og:description" content="コーナーで車が浮き上がったり転倒するときに、まず試したい対策と詳しい説明に分けてまとめました。">
+  <meta property="og:url" content="https://rcpitspec.github.io/tips/highside.html">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #000000;
+      --card: #111111;
+      --neon-blue: #00ffff;
+      --gold: #ffd700;
+      --white: #ffffff;
+      --white70: rgba(255,255,255,0.72);
+      --white40: rgba(255,255,255,0.45);
+      --line: rgba(255,255,255,0.08);
+      --neon-glow: 0 0 20px rgba(0,255,255,0.3);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.9;
+      font-size: 18px;
+      overflow-x: hidden;
+    }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+    header.site {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+    }
+    header.site .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+    header.site a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header.site a span { color: var(--neon-blue); }
+    header.site .crumb-sep { color: var(--white40); }
+    header.site a.crumb-parent { color: var(--white70); text-decoration: none; font-weight: normal; }
+    header.site a.crumb-parent:hover { color: var(--neon-blue); }
+
+    article { padding: 40px 0 24px; }
+
+    .kicker {
+      display: inline-block;
+      padding: 0.25rem 0.9rem;
+      border: 1px solid var(--neon-blue);
+      border-radius: 999px;
+      color: var(--neon-blue);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      line-height: 1.45;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+
+    h2 {
+      font-size: 1.35rem;
+      color: var(--neon-blue);
+      text-shadow: var(--neon-glow);
+      margin: 2.6rem 0 0.9rem;
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      color: var(--gold);
+      margin: 1.8rem 0 0.5rem;
+      line-height: 1.5;
+    }
+
+    p { margin-bottom: 1rem; }
+    ul { margin: 0 0 1rem 1.3rem; }
+    li { margin-bottom: 0.45rem; }
+    strong { color: var(--white); }
+
+    .points { margin: 0.4rem 0 0.8rem 1.4rem; }
+    .points li { margin-bottom: 0.6rem; }
+    .small { color: var(--white40); font-size: 0.9rem; }
+
+
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0 1.2rem;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { color: var(--gold); font-weight: 700; white-space: nowrap; }
+    td { color: var(--white70); }
+
+    .related-tips {
+      margin: 2.5rem 0 1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+    .related-tips h3 { margin-top: 0; margin-bottom: 0.8rem; }
+    .related-tips ul { list-style: none; margin: 0; padding: 0; }
+    .related-tips li { margin-bottom: 0.5rem; }
+    .related-tips a { color: var(--neon-blue); text-decoration: none; font-weight: 500; }
+    .related-tips a:hover { text-decoration: underline; }
+
+    .cta {
+      margin: 3rem 0 1rem;
+      background: var(--card);
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .cta h2 { margin-top: 0; }
+    .cta p { color: var(--white70); }
+    .store-badges {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 16px 0 0;
+    }
+    .store-badge { display: inline-flex; align-items: center; }
+    .store-badge img { height: 52px; width: auto; display: block; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--white40);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--line);
+    }
+    footer a { color: var(--neon-blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      body { font-size: 17px; }
+      th { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap nav">
+      <a href="../index.html">RC <span>Pit</span> Spec</a>
+      <span class="crumb-sep">/</span>
+      <a href="index.html" class="crumb-parent">セッティングのヒント</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <span class="kicker">セッティングのヒント</span>
+      <h1>RCカーがハイサイド（転倒）するときに見直したいところ</h1>
+
+      <h2>こんなとき</h2>
+      <ul>
+        <li>コーナーでイン側のタイヤが浮いてコロンと転んでしまう</li>
+        <li>カーペットやグリップの高い路面で急激に車が倒れ込む</li>
+        <li>縁石に乗ったり、急にハンドルを切った瞬間に横転する</li>
+      </ul>
+
+      <h2>まず試したい対策</h2>
+      <ol class="points">
+        <li><strong>舵角を少し絞る</strong> … 送信機で 5〜10% 減らすだけで、急激な倒れ込みを抑えやすい</li>
+        <li><strong>キャンバーを少し付ける</strong> … ロールしたときにタイヤの外側が引っ掛かるのを逃がす</li>
+        <li><strong>車高をわずかに下げる</strong> … 重心が下がることで、遠心力による傾きを小さくしやすい</li>
+        <li><strong>ダンパーを少し寝かせる</strong> … 立てすぎると足が突っ張って転倒のきっかけになることがある</li>
+        <li><strong>リバウンドを減らす</strong> … サスが伸びすぎるのを抑えると、イン側の浮き上がりを防ぎやすい</li>
+      </ol>
+      <p class="small">※ どれも目安です。<br>車や路面で逆に感じることもあるので、一か所ずつ変えて確かめるのがおすすめです。</p>
+
+      <h2>対策をもう少し詳しく</h2>
+
+      <h3>いつ転ぶかで、見る場所が変わる</h3>
+      <table>
+        <tr><th>いつ</th><th>疑われることが多いところ</th></tr>
+        <tr><td>切り始めで急に転ぶ</td><td>舵角が多すぎる・フロントタイヤの引っ掛かり</td></tr>
+        <tr><td>コーナーの途中で倒れ込む</td><td>キャンバー角・車高・ボディの重さ（重心）</td></tr>
+        <tr><td>切り返しの揺り返しで浮く</td><td>ダンパーの角度・スプリングやスタビの硬さ</td></tr>
+        <tr><td>縁石や段差に乗って転ぶ</td><td>リバウンドの量・車高</td></tr>
+      </table>
+
+      <h3>舵角と走らせ方</h3>
+      <p>サーキットで路面グリップが上がってきたときは、まず送信機で舵角を少し絞るのが手早く試せる方法です。<br>
+        急激にステアリングを切り込まず、まあるく綺麗に曲がるラインを意識するだけでも、転倒を抑えられることがあります。</p>
+
+      <h3>キャンバー角</h3>
+      <p>路面が食いすぎているときは、キャンバー角を少し付ける（寝かせる）と効果的なことが多いです。<br>
+        コーナリングで車体がロールしたときに、タイヤの角が路面に引っ掛かりにくくなり、外側へうまく逃がすことができます。</p>
+
+      <h3>車高と低重心化</h3>
+      <p>車高を 0.5mm ほど下げるだけでも重心が下がり、ハイサイドしにくくなる傾向があります。<br>
+        背の低いボディを選んだり、ボディをできるだけ低い位置に取り付けたりするのも、上回りの重さを減らす定番の工夫です。</p>
+
+      <h3>足まわり（ダンパー・リバウンド）</h3>
+      <p>ダンパーを少し寝かせると、タイヤからの入力をしなやかに受け止めやすくなります。<br>
+        また、リバウンド（サスペンションの伸び側のストローク）を詰めると、ロールした際にイン側のサスが伸びきって車体を押し上げる動きを減らせます。</p>
+
+      <h3>タイヤの引っ掛かり</h3>
+      <p>タイヤのグリップが高すぎるときは、フロントタイヤの外側の角（ショルダー部分）の引っ掛かりを少し減らすと操縦しやすくなります。<br>
+        角を少し慣らしたり、外側の溝を抑えたりすることで、切り始めの唐突な引っ掛かりをやわらげる人が多いようです。</p>
+
+      <h3>やりすぎに注意</h3>
+      <p>ハイサイドを防ごうとしてグリップを落としすぎると、今度は曲がらなくなったり、リヤが滑ってスピンしやすくなったりします。<br>
+        転ばずに安定して走れる限界を探りながら、少しずつ調整していくのがおすすめです。</p>
+
+      <div class="related-tips">
+        <h3>あわせて見直したいトラブル</h3>
+        <ul>
+          <li><a href="understeer.html">RCカーが曲がらない（アンダー）ときに見直したいところ &rarr;</a></li>
+          <li><a href="rear-slide.html">RCカーのリヤが滑る・スピンするときに見直したいところ &rarr;</a></li>
+          <li><a href="index.html">セッティングのヒント一覧を見る &rarr;</a></li>
+        </ul>
+      </div>
+      <div class="cta">
+        <h2>変えたこと、走りの変化を記録しておこう</h2>
+        <p>
+          RC Pit Spec は、RCカーのセッティングの記録・比較ができるアプリです。<br>
+          変えた調整と走りの変化を残しておけば、次に同じ悩みが出たときに見返せます。<br>
+          どこを見直せばいいか、AI に相談することもできます。
+        </p>
+        <div class="store-badges">
+          <a href="https://apps.apple.com/app/apple-store/id6761605402?pt=113277870&amp;ct=tips-highside&amp;mt=8" class="store-badge" aria-label="App Store でダウンロード">
+            <img src="../app_store.svg" alt="Download on the App Store">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.rcpitspec.app&amp;utm_source=tips&amp;utm_campaign=highside" class="store-badge" aria-label="Google Play で手に入れよう">
+            <img src="../google_play.svg" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>
+      <a href="../privacy.html">プライバシーポリシー</a> &nbsp;|&nbsp;
+      <a href="../terms.html">利用規約</a> &nbsp;|&nbsp;
+      <a href="../tokushoho.html">特定商取引法に基づく表記</a> &nbsp;|&nbsp;
+      &copy; 2026 RC Pit Spec
+    </p>
+  </footer>
+
+</body>
+</html>
