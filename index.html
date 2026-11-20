@@ -405,13 +405,24 @@
       text-decoration: none;
     }
     footer a:hover { text-decoration: underline; }
+
+    /* Tips section */
+    .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px; }
+    .tips-card { background: var(--card); border: 1px solid rgba(0,255,255,0.15); border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s; }
+    .tips-card:hover { border-color: rgba(0,255,255,0.4); }
+    .tips-card .tag { color: var(--gold); font-size: 0.8rem; font-weight: 700; }
+    .tips-card h3 { font-size: 1.05rem; color: #fff; margin: 6px 0 8px; }
+    .tips-card p { font-size: 0.85rem; color: var(--white70); }
+    .tips-more { text-align: center; margin-top: 20px; }
+    .tips-more a { display: inline-block; color: var(--neon-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600; border: 1px solid rgba(0,255,255,0.3); border-radius: 999px; padding: 8px 24px; }
+    .lang-switch a.tips-link { margin-right: 12px; color: var(--neon-blue); text-decoration: none; }
   </style>
 </head>
 <body>
 
   <!-- Hero -->
   <div class="hero">
-    <div class="lang-switch"><a href="tips/" style="margin-right: 12px; color: var(--neon-blue); text-decoration: none;">セッティングTips</a> <strong>日本語</strong> | <a href="index.en.html">English</a></div>
+    <div class="lang-switch"><a href="tips/" class="tips-link">セッティングTips</a> <strong>日本語</strong> | <a href="index.en.html">English</a></div>
     <div class="hero-badge">for Tamiya RC Enthusiasts</div>
     <h1>RC <span>Pit</span> Spec</h1>
     <p>タミヤRCカーのセッティングを記録・共有。<br>頑固親父AIがあなたのマシンを診断します。</p>
@@ -522,25 +533,25 @@
   <section id="tips">
     <h2 class="section-title">セッティングのヒント</h2>
     <p class="section-sub">「曲がらない」「リヤが滑る」など、ピット現場で役立つ対策ガイドを公開中。</p>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px;">
-      <a href="tips/understeer.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s;">
-        <span style="color: var(--gold); font-size: 0.8rem; font-weight: 700;">トラブル対策</span>
-        <h3 style="font-size: 1.05rem; color: #fff; margin: 6px 0 8px;">RCカーが曲がらない（アンダー）ときに見直したいところ</h3>
-        <p style="font-size: 0.85rem; color: var(--text-dim);">舵角・トーイン・デフ・ダンパーなど、手早く試せる対策 5 選 &rarr;</p>
+    <div class="tips-grid">
+      <a href="tips/understeer.html" class="tips-card">
+        <span class="tag">トラブル対策</span>
+        <h3>RCカーが曲がらない（アンダー）ときに見直したいところ</h3>
+        <p>舵角・トーイン・デフ・ダンパーなど、手早く試せる対策 5 選 &rarr;</p>
       </a>
-      <a href="tips/rear-slide.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s;">
-        <span style="color: var(--gold); font-size: 0.8rem; font-weight: 700;">トラブル対策</span>
-        <h3 style="font-size: 1.05rem; color: #fff; margin: 6px 0 8px;">RCカーのリヤが滑る・スピンするときに見直したいところ</h3>
-        <p style="font-size: 0.85rem; color: var(--text-dim);">キャンバー・ウイング・ダンパー・トー・デフの考え方 &rarr;</p>
+      <a href="tips/rear-slide.html" class="tips-card">
+        <span class="tag">トラブル対策</span>
+        <h3>RCカーのリヤが滑る・スピンするときに見直したいところ</h3>
+        <p>キャンバー・ウイング・ダンパー・トー・デフの考え方 &rarr;</p>
       </a>
-      <a href="tips/highside.html" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s;">
-        <span style="color: var(--gold); font-size: 0.8rem; font-weight: 700;">トラブル対策</span>
-        <h3 style="font-size: 1.05rem; color: #fff; margin: 6px 0 8px;">RCカーがハイサイド（転倒）するときに見直したいところ</h3>
-        <p style="font-size: 0.85rem; color: var(--text-dim);">舵角・キャンバー・車高・ダンパー・リバウンドの対策 5 選 &rarr;</p>
+      <a href="tips/highside.html" class="tips-card">
+        <span class="tag">トラブル対策</span>
+        <h3>RCカーがハイサイド（転倒）するときに見直したいところ</h3>
+        <p>舵角・キャンバー・車高・ダンパー・リバウンドの対策 5 選 &rarr;</p>
       </a>
     </div>
-    <div style="text-align: center; margin-top: 20px;">
-      <a href="tips/" style="display: inline-block; color: var(--neon-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600; border: 1px solid rgba(0,255,255,0.3); border-radius: 999px; padding: 8px 24px;">セッティングのヒント一覧を見る &rarr;</a>
+    <div class="tips-more">
+      <a href="tips/">セッティングのヒント一覧を見る &rarr;</a>
     </div>
   </section>
 

@@ -8,175 +8,27 @@
   <title>RCカーがまっすぐ走らないときに見直したいところ | RC Pit Spec</title>
   <meta name="description" content="ツーリングカーやMシャーシが直線でまっすぐ走らない・ふらつくときに、見直されることが多いポイントをまとめました。試しやすい対策 5 つと、ステアリング・トー角・サスの渋り・車高の考え方。">
   <link rel="canonical" href="https://rcpitspec.github.io/tips/straight-line.html">
+  <link rel="alternate" hreflang="ja" href="https://rcpitspec.github.io/tips/straight-line.html">
+  <link rel="alternate" hreflang="en" href="https://rcpitspec.github.io/tips/en/straight-line.html">
+  <link rel="alternate" hreflang="x-default" href="https://rcpitspec.github.io/tips/straight-line.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="RCカーがまっすぐ走らないときに見直したいところ">
   <meta property="og:description" content="直線でどちらかに流れたりトリムが合わないときに、まず試したい対策と詳しい説明に分けてまとめました。">
   <meta property="og:url" content="https://rcpitspec.github.io/tips/straight-line.html">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --black: #000000;
-      --card: #111111;
-      --neon-blue: #00ffff;
-      --gold: #ffd700;
-      --white: #ffffff;
-      --white70: rgba(255,255,255,0.72);
-      --white40: rgba(255,255,255,0.45);
-      --line: rgba(255,255,255,0.08);
-      --neon-glow: 0 0 20px rgba(0,255,255,0.3);
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
-      background: var(--black);
-      color: var(--white);
-      line-height: 1.9;
-      font-size: 18px;
-      overflow-x: hidden;
-    }
-
-    .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
-
-    header.site {
-      border-bottom: 1px solid var(--line);
-      padding: 14px 0;
-    }
-    header.site .nav {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.95rem;
-    }
-    header.site a {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-    }
-    header.site a span { color: var(--neon-blue); }
-    header.site .crumb-sep { color: var(--white40); }
-    header.site a.crumb-parent { color: var(--white70); text-decoration: none; font-weight: normal; }
-    header.site a.crumb-parent:hover { color: var(--neon-blue); }
-
-    article { padding: 40px 0 24px; }
-
-    .kicker {
-      display: inline-block;
-      padding: 0.25rem 0.9rem;
-      border: 1px solid var(--neon-blue);
-      border-radius: 999px;
-      color: var(--neon-blue);
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-    }
-
-    h1 {
-      font-size: clamp(1.6rem, 5vw, 2.2rem);
-      line-height: 1.45;
-      color: var(--white);
-      margin-bottom: 1.2rem;
-    }
-
-
-    h2 {
-      font-size: 1.35rem;
-      color: var(--neon-blue);
-      text-shadow: var(--neon-glow);
-      margin: 2.6rem 0 0.9rem;
-      line-height: 1.5;
-    }
-
-    h3 {
-      font-size: 1.12rem;
-      color: var(--gold);
-      margin: 1.8rem 0 0.5rem;
-      line-height: 1.5;
-    }
-
-    p { margin-bottom: 1rem; }
-    ul { margin: 0 0 1rem 1.3rem; }
-    li { margin-bottom: 0.45rem; }
-    strong { color: var(--white); }
-
-    .points { margin: 0.4rem 0 0.8rem 1.4rem; }
-    .points li { margin-bottom: 0.6rem; }
-    .small { color: var(--white40); font-size: 0.9rem; }
-
-
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 0.8rem 0 1.2rem;
-      font-size: 0.95rem;
-    }
-    th, td {
-      border-bottom: 1px solid var(--line);
-      padding: 10px 8px;
-      text-align: left;
-      vertical-align: top;
-    }
-    th { color: var(--gold); font-weight: 700; white-space: nowrap; }
-    td { color: var(--white70); }
-
-    .related-tips {
-      margin: 2.5rem 0 1rem;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 20px 22px;
-    }
-    .related-tips h3 { margin-top: 0; margin-bottom: 0.8rem; }
-    .related-tips ul { list-style: none; margin: 0; padding: 0; }
-    .related-tips li { margin-bottom: 0.5rem; }
-    .related-tips a { color: var(--neon-blue); text-decoration: none; font-weight: 500; }
-    .related-tips a:hover { text-decoration: underline; }
-
-    .cta {
-      margin: 3rem 0 1rem;
-      background: var(--card);
-      border: 1px solid rgba(0,255,255,0.25);
-      border-radius: 16px;
-      padding: 28px 22px;
-      text-align: center;
-    }
-    .cta h2 { margin-top: 0; }
-    .cta p { color: var(--white70); }
-    .store-badges {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 16px 0 0;
-    }
-    .store-badge { display: inline-flex; align-items: center; }
-    .store-badge img { height: 52px; width: auto; display: block; }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--white40);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--line);
-    }
-    footer a { color: var(--neon-blue); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    @media (max-width: 480px) {
-      body { font-size: 17px; }
-      th { white-space: normal; }
-    }
-  </style>
+  <link rel="stylesheet" href="tips.css?v=1">
 </head>
 <body>
 
   <header class="site">
     <div class="wrap nav">
-      <a href="../index.html">RC <span>Pit</span> Spec</a>
-      <span class="crumb-sep">/</span>
-      <a href="index.html" class="crumb-parent">セッティングのヒント</a>
+      <div class="left">
+        <a href="../index.html">RC <span>Pit</span> Spec</a>
+        <span class="crumb-sep">/</span>
+        <a href="index.html" class="crumb-parent">セッティングのヒント</a>
+      </div>
+      <div class="lang-switch">
+        <strong>日本語</strong> | <a href="en/straight-line.html">English</a>
+      </div>
     </div>
   </header>
 

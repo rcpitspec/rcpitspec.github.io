@@ -390,13 +390,24 @@
       text-decoration: none;
     }
     footer a:hover { text-decoration: underline; }
+
+    /* Tips section */
+    .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px; }
+    .tips-card { background: var(--card); border: 1px solid rgba(0,255,255,0.15); border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s; }
+    .tips-card:hover { border-color: rgba(0,255,255,0.4); }
+    .tips-card .tag { color: var(--gold); font-size: 0.8rem; font-weight: 700; }
+    .tips-card h3 { font-size: 1.05rem; color: #fff; margin: 6px 0 8px; }
+    .tips-card p { font-size: 0.85rem; color: var(--white70); }
+    .tips-more { text-align: center; margin-top: 20px; }
+    .tips-more a { display: inline-block; color: var(--neon-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600; border: 1px solid rgba(0,255,255,0.3); border-radius: 999px; padding: 8px 24px; }
+    .lang-switch a.tips-link { margin-right: 12px; color: var(--neon-blue); text-decoration: none; }
   </style>
 </head>
 <body>
 
   <!-- Hero -->
   <div class="hero">
-    <div class="lang-switch"><a href="index.html">日本語</a> | <strong>English</strong></div>
+    <div class="lang-switch"><a href="tips/en/" class="tips-link">Setup Tips</a> <a href="index.html">日本語</a> | <strong>English</strong></div>
     <div class="hero-badge">for Tamiya RC Enthusiasts</div>
     <h1>RC <span>Pit</span> Spec</h1>
     <p>Record and share your Tamiya RC car settings.<br>The "Stubborn Old Man" AI diagnoses your machine.</p>
@@ -514,6 +525,32 @@
     </table>
   </section>
 
+  <!-- Tips Section -->
+  <section id="tips">
+    <h2 class="section-title">RC Setup Tips</h2>
+    <p class="section-sub">Quick pit-lane troubleshooting guides for understeer, traction roll, and loose rear end.</p>
+    <div class="tips-grid">
+      <a href="tips/en/understeer.html" class="tips-card">
+        <span class="tag">TROUBLESHOOTING</span>
+        <h3>How to Fix RC Car Understeer (Pushing Wide)</h3>
+        <p>Steering rate, rear toe-in, diff oil, and shock angles &rarr;</p>
+      </a>
+      <a href="tips/en/rear-slide.html" class="tips-card">
+        <span class="tag">TROUBLESHOOTING</span>
+        <h3>How to Fix a Loose Rear End & Spinouts</h3>
+        <p>Camber angles, wing setup, shock stiffness, and diff tuning &rarr;</p>
+      </a>
+      <a href="tips/en/highside.html" class="tips-card">
+        <span class="tag">TROUBLESHOOTING</span>
+        <h3>How to Stop RC Car Traction Roll (Tipping Over)</h3>
+        <p>Steering rate, camber, ride height, and droop adjustments &rarr;</p>
+      </a>
+    </div>
+    <div class="tips-more">
+      <a href="tips/en/">View All Setup Tips &rarr;</a>
+    </div>
+  </section>
+
   <!-- CTA -->
   <div class="cta-section">
     <h2>Download Now</h2>
@@ -531,6 +568,7 @@
   <!-- Footer -->
   <footer>
     <p>
+      <a href="tips/en/">Setup Tips</a> &nbsp;|&nbsp;
       <a href="privacy.en.html">Privacy Policy</a> &nbsp;|&nbsp;
       <a href="terms.en.html">Terms of Service</a> &nbsp;|&nbsp;
       &copy; 2026 RC Pit Spec
