@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>4WD RC Differential Tuning Guide: Spool, Gear Diff &amp; Ball Diff | RC Pit Spec</title>
+  <meta name="description" content="A comprehensive tuning guide for 4WD RC car differentials. Learn how to combine front spools and gear diffs, select rear fluid viscosities, and balance traction.">
+  <link rel="canonical" href="https://rcpitspec.github.io/tips/en/diff-4wd.html">
+  <link rel="alternate" hreflang="ja" href="https://rcpitspec.github.io/tips/diff-4wd.html">
+  <link rel="alternate" hreflang="en" href="https://rcpitspec.github.io/tips/en/diff-4wd.html">
+  <link rel="alternate" hreflang="x-default" href="https://rcpitspec.github.io/tips/diff-4wd.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="4WD RC Differential Tuning Guide: Spool, Gear Diff &amp; Ball Diff">
+  <meta property="og:description" content="Learn how spools, gear diffs, and ball diffs change handling, and how to choose the right front-to-rear setup balance on 4WD chassis.">
+  <meta property="og:url" content="https://rcpitspec.github.io/tips/en/diff-4wd.html">
+  <link rel="stylesheet" href="../tips.css?v=1">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "RC Pit Spec",
+        "item": "https://rcpitspec.github.io/index.en.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Setup Tips",
+        "item": "https://rcpitspec.github.io/tips/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "4WD RC Differential Tuning Guide",
+        "item": "https://rcpitspec.github.io/tips/en/diff-4wd.html"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "4WD RC Differential Tuning Guide: Spool, Gear Diff & Ball Diff",
+    "description": "A comprehensive tuning guide for 4WD RC car differentials. Learn how to combine front spools and gear diffs, select rear fluid viscosities, and balance traction.",
+    "mainEntityOfPage": "https://rcpitspec.github.io/tips/en/diff-4wd.html",
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Organization",
+      "name": "RC Pit Spec",
+      "url": "https://rcpitspec.github.io/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap nav">
+      <div class="left">
+        <a href="../../index.en.html">RC <span>Pit</span> Spec</a>
+        <span class="crumb-sep">/</span>
+        <a href="index.html" class="crumb-parent">Setup Tips</a>
+      </div>
+      <div class="lang-switch">
+        <a href="../diff-4wd.html">日本語</a> | <strong>English</strong>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <span class="kicker">Setup Tips</span>
+      <h1>4WD RC Differential Tuning Guide: Spool, Gear Diff &amp; Ball Diff</h1>
+
+      <h2>Common Symptoms</h2>
+      <ul>
+        <li>Unsure how to combine front and rear diffs on a 4WD chassis</li>
+        <li>Car lacks forward bite on corner exit or refuses to rotate tightly</li>
+        <li>Looking to understand how rear diff fluid viscosity impacts overall handling</li>
+      </ul>
+
+      <h2>5 Steps to Try First</h2>
+      <ol class="points">
+        <li><strong>Start with stiffer front, softer rear</strong> &hellip; This creates a stable 4WD baseline with reliable forward drive and predictable turn-in.</li>
+        <li><strong>Use a front spool (direct drive) for maximum pull</strong> &hellip; A locked front diff pulls hard out of corners, though initial steering input can become aggressive.</li>
+        <li><strong>Switch to a front gear diff if turn-in feels twitchy</strong> &hellip; A sealed gear diff with heavy silicone fluid allows slight differentiation, smoothing initial response.</li>
+        <li><strong>Softer rear diff rotates; stiffer rear diff drives forward</strong> &hellip; Adjusting rear fluid thickness balances corner rotation against exit acceleration.</li>
+        <li><strong>Try a rear ball diff on low-grip or bumpy surfaces</strong> &hellip; Smooth limited-slip action keeps power flowing even when inside wheels lift over bumps.</li>
+      </ol>
+      <p class="small">※ These are general guidelines.<br>Setup effects can vary depending on chassis and surface grip. It's best to change one setting at a time.</p>
+
+      <h2>A Closer Look at 4WD Differential Setup</h2>
+
+      <h3>Comparing the 3 Common Diff Types</h3>
+      <table>
+        <tr><th>Type</th><th>Characteristics</th><th>Typical Role in 4WD</th></tr>
+        <tr><td>Spool (Solid Axle)</td><td>Locked with zero differentiation. Maximum braking and pull, but creates scrubbing in corners.</td><td>Front (Modern touring standard)</td></tr>
+        <tr><td>Gear Diff</td><td>Sealed design allows tuning with fluid viscosity. Extremely durable and low maintenance.</td><td>Rear standard, or front for smoother steering</td></tr>
+        <tr><td>Ball Diff</td><td>Smooth limited-slip action prevents wheel spin. Excellent traction on loose dirt and dust.</td><td>Rear (Dirt and low-grip surfaces)</td></tr>
+      </table>
+
+      <h3>Front Differential: Spool vs. Gear Diff</h3>
+      <p>In modern 4WD touring cars, a front spool is the standard choice on asphalt tracks.<br>
+        It maximizes forward traction, literally pulling the car out of corners under throttle.<br>
+        On high-grip black carpet tracks, however, a spool can make turn-in feel overly aggressive and hard to manage.<br>
+        Swapping to a sealed gear diff with heavy fluid often calms the steering response without sacrificing too much forward punch.</p>
+
+      <h3>Rear Differential Fluid Tuning</h3>
+      <p>In 4WD cars, rear fluid viscosity heavily influences how the chassis finishes a turn.<br>
+        Lighter rear fluid allows the car to rotate freely, making it easier to carve through tight chicanes and hairpins.<br>
+        Heavier rear fluid locks the rear wheels together under power, providing strong forward thrust down the straightaway.<br>
+        However, running overly thick rear fluid can cause sudden power oversteer on corner exit as the rear tires break traction together.</p>
+
+      <h3>Common Front-to-Rear Combinations</h3>
+      <p>The most versatile combination is a front spool paired with a soft-to-medium rear gear diff.<br>
+        On loose dirt or dusty outdoor surfaces, swapping the rear diff to a smooth ball diff helps keep both wheels driving forward without spinning.<br>
+        On tight indoor tracks, running a heavy gear diff up front smooths out excessive steering snap.</p>
+
+      <h3>Avoid Going Too Far</h3>
+      <p>Locking up both front and rear differentials produces massive straight-line speed, but causes terrible push and rapid tire wear in turns.<br>
+        Conversely, running an excessively loose rear diff can make the car snap into unpredictable spins during corner entry.<br>
+        Start from your chassis manual baseline, and fine-tune rear fluid by modest steps to dial in your preferred handling.</p>
+
+      <div class="related-tips">
+        <h3>Related Troubleshooting &amp; Setup Guides</h3>
+        <ul>
+          <li><a href="understeer.html">How to Fix RC Understeer (Car Won't Turn) &rarr;</a></li>
+          <li><a href="rear-slide.html">How to Fix a Loose Rear End &amp; Spinouts &rarr;</a></li>
+          <li><a href="damper-spring.html">How to Choose RC Shock Oil and Springs &rarr;</a></li>
+          <li><a href="straight-line.html">Why Your RC Car Won't Drive Straight &amp; How to Fix It &rarr;</a></li>
+          <li><a href="index.html">View All Setup Tips &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <h2>Keep Track of Every Setup Change</h2>
+        <p>
+          RC Pit Spec helps you log and compare chassis settings across practice sessions.<br>
+          Record your diff configurations, oil viscosities, and track conditions to build a reference you can revisit anytime.<br>
+          You can also consult the built-in AI assistant when fine-tuning your handling.
+        </p>
+        <div class="store-badges">
+          <a href="https://apps.apple.com/app/apple-store/id6761605402?pt=113277870&amp;ct=tips-en-diff-4wd&amp;mt=8" class="store-badge" aria-label="Download on the App Store">
+            <img src="../../app_store.svg" alt="Download on the App Store">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.rcpitspec.app&amp;utm_source=tips_en&amp;utm_campaign=diff-4wd" class="store-badge" aria-label="Get it on Google Play">
+            <img src="../../google_play.svg" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>
+      <a href="../../privacy.en.html">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="../../terms.en.html">Terms of Service</a> &nbsp;|&nbsp;
+      <a href="../../tokushoho.html">Legal Notice</a> &nbsp;|&nbsp;
+      &copy; 2026 RC Pit Spec
+    </p>
+  </footer>
+
+</body>
+</html>
