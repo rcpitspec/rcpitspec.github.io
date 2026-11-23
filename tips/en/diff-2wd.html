@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>2WD RC Differential Tuning Guide: RWD &amp; FWD Setup | RC Pit Spec</title>
+  <meta name="description" content="A comprehensive differential tuning guide for 2WD RC cars (RWD and FWD). Learn how to prevent spinouts on rear-wheel drive and manage steering snap on front-wheel drive.">
+  <link rel="canonical" href="https://rcpitspec.github.io/tips/en/diff-2wd.html">
+  <link rel="alternate" hreflang="ja" href="https://rcpitspec.github.io/tips/diff-2wd.html">
+  <link rel="alternate" hreflang="en" href="https://rcpitspec.github.io/tips/en/diff-2wd.html">
+  <link rel="alternate" hreflang="x-default" href="https://rcpitspec.github.io/tips/diff-2wd.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="2WD RC Differential Tuning Guide: RWD &amp; FWD Setup">
+  <meta property="og:description" content="Differential tuning advice specifically for 2WD RC cars: RWD stability and traction, plus FWD pulling power and turn-in control.">
+  <meta property="og:url" content="https://rcpitspec.github.io/tips/en/diff-2wd.html">
+  <link rel="stylesheet" href="../tips.css?v=1">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "RC Pit Spec",
+        "item": "https://rcpitspec.github.io/index.en.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Setup Tips",
+        "item": "https://rcpitspec.github.io/tips/en/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "2WD RC Differential Tuning Guide",
+        "item": "https://rcpitspec.github.io/tips/en/diff-2wd.html"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "2WD RC Differential Tuning Guide: RWD & FWD Setup",
+    "description": "A comprehensive differential tuning guide for 2WD RC cars (RWD and FWD). Learn how to prevent spinouts on rear-wheel drive and manage steering snap on front-wheel drive.",
+    "mainEntityOfPage": "https://rcpitspec.github.io/tips/en/diff-2wd.html",
+    "inLanguage": "en",
+    "publisher": {
+      "@type": "Organization",
+      "name": "RC Pit Spec",
+      "url": "https://rcpitspec.github.io/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap nav">
+      <div class="left">
+        <a href="../../index.en.html">RC <span>Pit</span> Spec</a>
+        <span class="crumb-sep">/</span>
+        <a href="index.html" class="crumb-parent">Setup Tips</a>
+      </div>
+      <div class="lang-switch">
+        <a href="../diff-2wd.html">日本語</a> | <strong>English</strong>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <span class="kicker">Setup Tips</span>
+      <h1>2WD RC Differential Tuning Guide: RWD &amp; FWD Setup</h1>
+
+      <h2>Common Symptoms</h2>
+      <ul>
+        <li>RWD chassis snaps into a spin under throttle or struggles for forward bite</li>
+        <li>FWD chassis feels twitchy on initial turn-in or understeers wide on exit</li>
+        <li>Unsure how to choose diff fluid viscosity when the car only has one differential</li>
+      </ul>
+
+      <h2>5 Steps to Try First</h2>
+      <ol class="points">
+        <li><strong>Choose a ball diff for RWD stability</strong> &hellip; Smooth limited-slip action keeps power flowing even when the inside wheel lifts, adding valuable traction.</li>
+        <li><strong>Avoid overly stiff fluid in RWD gear diffs</strong> &hellip; Excessive rear locking causes both tires to break loose together, often triggering snap oversteer.</li>
+        <li><strong>Use a front spool on FWD for maximum pull</strong> &hellip; Solid front axle delivers immense forward bite out of corners and maximizes straightaway acceleration.</li>
+        <li><strong>Switch to a heavy gear diff if FWD steering is twitchy</strong> &hellip; Allowing controlled differentiation calms aggressive steering snap without sacrificing drive.</li>
+        <li><strong>Maintain your single drive diff regularly</strong> &hellip; On a 2WD car with only one differential, fluid leaks or slipping ball diffs instantly degrade handling.</li>
+      </ol>
+      <p class="small">※ These are general guidelines.<br>Setup effects can vary depending on chassis and surface grip. It's best to change one setting at a time.</p>
+
+      <h2>A Closer Look at 2WD Differential Setup</h2>
+
+      <h3>Drivetrain Differences: RWD vs. FWD</h3>
+      <table>
+        <tr><th>Drivetrain</th><th>Typical Chassis</th><th>Primary Goal</th><th>Common Diff Choice</th></tr>
+        <tr><td>Rear-Wheel Drive (RWD)</td><td>M-08, 2WD Buggy, F1</td><td>Prevent snap spins; maximize exit traction</td><td>Ball diff, or soft-to-medium gear diff</td></tr>
+        <tr><td>Front-Wheel Drive (FWD)</td><td>M-07, FWD Touring</td><td>Balance forward pull with smooth steering</td><td>Spool (for punch) or heavy gear diff (for control)</td></tr>
+      </table>
+
+      <h3>Tuning Rear-Wheel Drive (RWD) Differentials</h3>
+      <p>On a rear-wheel drive car, differential action directly determines rear stability.<br>
+        If a rear gear diff is built too loose, the unloaded inside tire will spin uselessly on corner exit.<br>
+        Conversely, building the diff too tight causes the rear tires to break away abruptly the moment throttle is applied mid-corner.<br>
+        On low-grip outdoor tracks or dirt surfaces, running a smoothly adjusted ball diff provides progressive limited-slip action that helps the driver apply power with confidence.</p>
+
+      <h3>Tuning Front-Wheel Drive (FWD) Differentials</h3>
+      <p>A front-wheel drive chassis relies on its single front differential to both steer and pull the car.<br>
+        Running a front spool offers incredible punch off the line and off apexes, but the car can feel very twitchy at corner entry.<br>
+        On high-grip indoor surfaces where turn-in feels overly aggressive, swapping to a sealed gear diff with heavy fluid often smooths out steering transitions and keeps lap times consistent.</p>
+
+      <h3>Motor Power and Battery Choice: Gear Diff vs. Ball Diff</h3>
+      <p>The choice between ball diffs and gear diffs is strongly influenced by motor power and battery technology.<br>
+        In high-power modified classes using LiPo packs and low-turn brushless motors, massive torque can easily overpower ball diffs, causing slipping and rapid wear. For these setups, rugged sealed gear diffs are the dominant choice.<br>
+        In moderate-power spec classes, M-chassis racing, or loose dirt 2WD buggies, however, ball diffs remain a proven option because their progressive limited-slip action keeps power planted without the risk of severe slippage.</p>
+
+      <h3>The Big Difference Between 2WD and 4WD</h3>
+      <p>Unlike 4WD cars, a 2WD chassis cannot balance handling between front and rear differentials.<br>
+        The single differential on the driven axle completely dictates how the chassis behaves under power.<br>
+        Periodically checking ball diff tightness and ensuring sealed gear diffs do not leak fluid is essential for consistent track performance.</p>
+
+      <h3>Avoid Going Too Far</h3>
+      <p>Attempting to gain forward acceleration on an RWD car by over-tightening the diff frequently results in a car that spins out on throttle.<br>
+        Similarly, running a solid spool on FWD accelerates front tire heat and uneven wear.<br>
+        Begin with your chassis manual baseline, and fine-tune fluid thickness conservatively to match your personal driving style.</p>
+
+      <div class="related-tips">
+        <h3>Related Troubleshooting &amp; Setup Guides</h3>
+        <ul>
+          <li><a href="diff-4wd.html">4WD RC Differential Tuning Guide: Spool, Gear Diff &amp; Ball Diff &rarr;</a></li>
+          <li><a href="rear-slide.html">How to Fix a Loose Rear End &amp; Spinouts &rarr;</a></li>
+          <li><a href="understeer.html">How to Fix RC Understeer (Car Won't Turn) &rarr;</a></li>
+          <li><a href="damper-spring.html">How to Choose RC Shock Oil and Springs &rarr;</a></li>
+          <li><a href="index.html">View All Setup Tips &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <h2>Keep Track of Every Setup Change</h2>
+        <p>
+          RC Pit Spec helps you log and compare chassis settings across practice sessions.<br>
+          Record your diff configurations, oil viscosities, and track conditions to build a reference you can revisit anytime.<br>
+          You can also consult the built-in AI assistant when fine-tuning your handling.
+        </p>
+        <div class="store-badges">
+          <a href="https://apps.apple.com/app/apple-store/id6761605402?pt=113277870&amp;ct=tips-en-diff-2wd&amp;mt=8" class="store-badge" aria-label="Download on the App Store">
+            <img src="../../app_store.svg" alt="Download on the App Store">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.rcpitspec.app&amp;utm_source=tips_en&amp;utm_campaign=diff-2wd" class="store-badge" aria-label="Get it on Google Play">
+            <img src="../../google_play.svg" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>
+      <a href="../../privacy.en.html">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="../../terms.en.html">Terms of Service</a> &nbsp;|&nbsp;
+      <a href="../../tokushoho.html">Legal Notice</a> &nbsp;|&nbsp;
+      &copy; 2026 RC Pit Spec
+    </p>
+  </footer>
+
+</body>
+</html>
