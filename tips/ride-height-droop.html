@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>RCカーの車高とリバウンドの基本と合わせ方 | RC Pit Spec</title>
+  <meta name="description" content="RCカーの車高（ライドハイト）とリバウンド（ドループ・伸び側ストローク）の基本と合わせ方をまとめました。前後の車高バランス、路面追従性を高めるリバウンド調整、下げすぎの注意点。">
+  <link rel="canonical" href="https://rcpitspec.github.io/tips/ride-height-droop.html">
+  <link rel="alternate" hreflang="ja" href="https://rcpitspec.github.io/tips/ride-height-droop.html">
+  <link rel="alternate" hreflang="en" href="https://rcpitspec.github.io/tips/en/ride-height-droop.html">
+  <link rel="alternate" hreflang="x-default" href="https://rcpitspec.github.io/tips/ride-height-droop.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RCカーの車高とリバウンドの基本と合わせ方">
+  <meta property="og:description" content="車高とリバウンドの役割の違い、前後のバランス、路面に合わせたストローク調整の基本をまとめました。">
+  <meta property="og:url" content="https://rcpitspec.github.io/tips/ride-height-droop.html">
+  <link rel="stylesheet" href="tips.css?v=1">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "RC Pit Spec",
+        "item": "https://rcpitspec.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "セッティングのヒント",
+        "item": "https://rcpitspec.github.io/tips/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "RCカーの車高とリバウンドの基本と合わせ方",
+        "item": "https://rcpitspec.github.io/tips/ride-height-droop.html"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "RCカーの車高とリバウンドの基本と合わせ方",
+    "description": "RCカーの車高（ライドハイト）とリバウンド（ドループ・伸び側ストローク）の基本と合わせ方をまとめました。前後の車高バランス、路面追従性を高めるリバウンド調整、下げすぎの注意点。",
+    "mainEntityOfPage": "https://rcpitspec.github.io/tips/ride-height-droop.html",
+    "inLanguage": "ja",
+    "publisher": {
+      "@type": "Organization",
+      "name": "RC Pit Spec",
+      "url": "https://rcpitspec.github.io/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap nav">
+      <div class="left">
+        <a href="../index.html">RC <span>Pit</span> Spec</a>
+        <span class="crumb-sep">/</span>
+        <a href="index.html" class="crumb-parent">セッティングのヒント</a>
+      </div>
+      <div class="lang-switch">
+        <strong>日本語</strong> | <a href="en/ride-height-droop.html">English</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article>
+      <span class="kicker">セッティングのヒント</span>
+      <h1>RCカーの車高とリバウンドの基本と合わせ方</h1>
+
+      <h2>こんなとき</h2>
+      <ul>
+        <li>車高ゲージを買ったものの、前後で何ミリに合わせればいいか分からない</li>
+        <li>路面の段差や縁石で車体が跳ねる、または切り返しの動きが重い</li>
+        <li>車高とリバウンド（伸び側のストローク）の違いや役割が分からない</li>
+      </ul>
+
+      <h2>まず試したい車高とリバウンドの基本</h2>
+      <ol class="points">
+        <li><strong>まずは前後水平〜リヤを0.5mm高く合わせる</strong> … リヤを少し高めにするとタイヤに適度な荷重が乗り、加速時の踏ん張りが安定しやすい</li>
+        <li><strong>バッテリーやメカを載せた「走行状態」で測定する</strong> … 実走状態でないと重みで沈む量が反映されず、正確な車高が出ないため</li>
+        <li><strong>車高の下げすぎ（底付き）に注意する</strong> … シャーシ底面が路面や縁石にヒットすると、急にグリップを失ってスピンや転倒の原因になる</li>
+        <li><strong>低グリップ路面やギャップではリバウンドを多めに取る</strong> … サスがしっかり伸びてイン側のタイヤが接地し続け、路面追従性が高まる傾向</li>
+        <li><strong>切り返しをシャープにしたいならフロントのリバウンドを詰める</strong> … 前荷重の移動量が制限され、ステアリングの応答性がクイックになる</li>
+      </ol>
+      <p class="small">※ どれも目安です。<br>車や路面で逆に感じることもあるので、一か所ずつ変えて確かめるのがおすすめです。</p>
+
+      <h2>車高とリバウンドの仕組みをもう少し詳しく</h2>
+
+      <h3>車高とリバウンドの役割の違い</h3>
+      <table>
+        <tr><th>項目</th><th>意味</th><th>走りに与える主な影響</th></tr>
+        <tr><td>車高（ライドハイト）</td><td>平らな面からシャーシ底面までの隙間</td><td>低くすると低重心化して安定。前後の差で荷重移動のしやすさが変化</td></tr>
+        <tr><td>リバウンド（ドループ）</td><td>車高の位置からサスがさらに下に伸びる量</td><td>多いと凹凸追従や内輪接地が向上。少ないと動きがカチッとシャープになる</td></tr>
+      </table>
+
+      <h3>前後の車高バランスの考え方</h3>
+      <p>車高はすべてのセッティングの基準となる土台です。<br>
+        基本は前後同じ高さ（水平）から始め、リヤのグリップが足りないと感じたときはリヤの車高だけを0.5mmほど高くするのが定番の調整法です。<br>
+        わずかに前下がりの姿勢にすることで、加速時にリヤタイヤへしっかりと荷重がかかり、蹴り出しのグリップ感が立ち上がりやすくなります。</p>
+
+      <h3>リバウンド（伸び側の動き）の調整</h3>
+      <p>車体を平らな面に置き、ゆっくり持ち上げたときにタイヤが地面から離れるまでの伸びしろがリバウンドです。<br>
+        埃っぽい低グリップ路面や屋外のアスファルトでは、リヤのリバウンドをしっかり確保すると、ロールしたときにイン側のタイヤが浮き上がらずに路面を捉え続け、スピンを防ぎやすくなります。<br>
+        逆にハイグリップなカーペット路面などで「動きが重くてもたつく」と感じるときは、フロントのリバウンドを少し減らすと、余分な前後のピッチングが抑えられてシャープな切り返しができるようになります。</p>
+
+      <h3>車高とリバウンドの測り方と注意点</h3>
+      <p>スプリングのアジャスターを回して車高を上げ下げすると、実はリバウンドの量も一緒に変化してしまいます。<br>
+        本格的に合わせる場合は、まずサスアームのダウンストップビス（ドループスクリュー）やダンパー長で「アームがどこまで下がるか」を左右均等に決め、その後にスプリングのプリロードで目的の車高に合わせるのがおすすめです。</p>
+
+      <h3>一箇所触ると他も変わる？（足回りの連動性と合わせる順番）</h3>
+      <p>RCカーの足回りはパーツ同士が連動しているため、一箇所触ると別の数値も一緒に動いてしまうことがよくあります。<br>
+        例えば車高を上げ下げすると、サスアームの角度が変わるため、キャンバー角やトー角も連動してズレてしまいます。<br>
+        また、ダンパーの取り付け角度を変えたときや、タイヤが摩耗して外径が小さくなったときも、自然と車高やキャンバーが変化します。<br>
+        ピットでセッティングに迷わないためには、次の順番で合わせるのがおすすめです：<br>
+        ①リバウンド（アームの下がり幅）を決める &rarr; ②スプリングで車高を合わせる &rarr; ③キャンバー角を測り直す &rarr; ④トー角を確認する。<br>
+        「車高や足回りを触ったら、キャンバーも確認する」という意識を持つだけで、原因不明の走りの違和感を大きく減らすことができます。</p>
+
+      <h3>やりすぎに注意</h3>
+      <p>見た目を重視して車高を限界まで下げると、コーナーや加速時にシャーシの腹を地面に打ち付けて跳ねてしまいます。<br>
+        また、リバウンドを完全にゼロにしてしまうと、縁石や小さな凹凸に乗った瞬間にタイヤが空中に浮いてコントロールを失う原因になります。<br>
+        路面のバンピーさに合わせて、サスペンションが上下にしっかり呼吸できるクリアランスを残しておくのが安心です。</p>
+
+      <div class="related-tips">
+        <h3>あわせて見直したいトラブル・基本</h3>
+        <ul>
+          <li><a href="damper-spring.html">RCカーのダンパーオイルとスプリングの基本と選び方 &rarr;</a></li>
+          <li><a href="camber-angle.html">RCカーのキャンバー角の基本と合わせ方 &rarr;</a></li>
+          <li><a href="toe-angle.html">RCカーのトー角の基本と走りの違い（トーイン・トーアウト） &rarr;</a></li>
+          <li><a href="rear-slide.html">RCカーのリヤが滑る・スピンするときに見直したいところ &rarr;</a></li>
+          <li><a href="highside.html">RCカーがハイサイド（転倒）するときに見直したいところ &rarr;</a></li>
+          <li><a href="index.html">セッティングのヒント一覧を見る &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <h2>変えたこと、走りの変化を記録しておこう</h2>
+        <p>
+          RC Pit Spec は、RCカーのセッティングの記録・比較ができるアプリです。<br>
+          変えた調整と走りの変化を残しておけば、次に同じ悩みが出たときに見返せます。<br>
+          どこを見直せばいいか、AI に相談することもできます。
+        </p>
+        <div class="store-badges">
+          <a href="https://apps.apple.com/app/apple-store/id6761605402?pt=113277870&amp;ct=tips-ride-height-droop&amp;mt=8" class="store-badge" aria-label="App Store でダウンロード">
+            <img src="../app_store.svg" alt="Download on the App Store">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.rcpitspec.app&amp;utm_source=tips&amp;utm_campaign=ride-height-droop" class="store-badge" aria-label="Google Play で手に入れよう">
+            <img src="../google_play.svg" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>
+      <a href="../privacy.html">プライバシーポリシー</a> &nbsp;|&nbsp;
+      <a href="../terms.html">利用規約</a> &nbsp;|&nbsp;
+      <a href="../tokushoho.html">特定商取引法に基づく表記</a> &nbsp;|&nbsp;
+      &copy; 2026 RC Pit Spec
+    </p>
+  </footer>
+
+</body>
+</html>
